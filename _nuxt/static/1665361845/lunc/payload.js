@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/lunc", {data:[{}],fetch:{"LuncPage:0":{totalSupply:6892516357710.069,circulatingSupply:6591641244612.462}},mutations:void 0});

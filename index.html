@@ -31,7 +31,6 @@
         .hover-glow:hover { box-shadow: 0 0 30px rgba(22, 163, 74, 0.4); }
         .card-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); }
-        
         /* Language Switcher Styles */
         .language-switcher {
             position: fixed;
@@ -115,7 +114,6 @@
                 display: none;
             }
         }
-        
         /* Translation styles */
         .translated-id {
             display: none;
@@ -147,7 +145,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Hero Section -->
         <section
             class="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-green-50/30 to-white relative overflow-hidden">
@@ -1100,34 +1097,28 @@
         <script>
         // footer year
         document.getElementById('year').textContent = new Date().getFullYear();
-        
         // Language Switcher Functionality
         const languageToggle = document.getElementById('languageToggle');
         const languageDropdown = document.getElementById('languageDropdown');
         const languageOptions = document.querySelectorAll('.language-option');
         const flagIcon = languageToggle.querySelector('.flag-icon');
         const languageText = languageToggle.querySelector('span');
-        
         // Toggle dropdown
         languageToggle.addEventListener('click', function(e) {
             e.stopPropagation();
             languageDropdown.classList.toggle('active');
         });
-        
         // Close dropdown when clicking outside
         document.addEventListener('click', function() {
             languageDropdown.classList.remove('active');
         });
-        
         // Language selection
         languageOptions.forEach(option => {
             option.addEventListener('click', function() {
                 const lang = this.getAttribute('data-lang');
-                
                 // Update active state
                 languageOptions.forEach(opt => opt.classList.remove('active'));
                 this.classList.add('active');
-                
                 // Update button
                 if (lang === 'en') {
                     flagIcon.className = 'flag-icon flag-en';
@@ -1136,47 +1127,37 @@
                     flagIcon.className = 'flag-icon flag-id';
                     languageText.textContent = 'Indonesia';
                 }
-                
                 // Change language
                 changeLanguage(lang);
-                
                 // Close dropdown
                 languageDropdown.classList.remove('active');
             });
         });
-        
         // Language change function
         function changeLanguage(lang) {
             document.body.className = document.body.className.replace(/id|en/g, '') + ' ' + lang;
-            
             // Save preference to localStorage
             localStorage.setItem('preferred-language', lang);
         }
-        
         // Detect user's location and set default language
         function detectUserLanguage() {
             // Get user's timezone
             const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-            
             // Check if user is in Indonesia or nearby regions
             const indonesiaTimezones = [
                 'Asia/Jakarta', 'Asia/Makassar', 'Asia/Jayapura', 
                 'Asia/Singapore', 'Asia/Kuala_Lumpur', 'Asia/Manila'
             ];
-            
             // Check for saved preference first
             const savedLang = localStorage.getItem('preferred-language');
-            
             if (savedLang) {
                 // Use saved preference
                 changeLanguage(savedLang);
-                
                 // Update UI to match saved language
                 const activeOption = document.querySelector(`.language-option[data-lang="${savedLang}"]`);
                 if (activeOption) {
                     languageOptions.forEach(opt => opt.classList.remove('active'));
                     activeOption.classList.add('active');
-                    
                     if (savedLang === 'en') {
                         flagIcon.className = 'flag-icon flag-en';
                         languageText.textContent = 'English';
@@ -1188,7 +1169,6 @@
             } else if (indonesiaTimezones.includes(timezone)) {
                 // User is likely in Indonesia or nearby, set language to Indonesian
                 changeLanguage('id');
-                
                 // Update UI
                 const idOption = document.querySelector('.language-option[data-lang="id"]');
                 if (idOption) {
@@ -1199,7 +1179,6 @@
                 }
             }
         }
-        
         // Initialize when page loads
         window.addEventListener('DOMContentLoaded', function() {
             detectUserLanguage();

@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Endra Setiawan - Web Developer</title>
-    <link rel="icon" type="image/svg+xml"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' rx='32' ry='32' fill='%2300a35c'/%3E%3Ctext x='50%25' y='58%25' font-size='140' font-family='Arial, sans-serif' font-weight='700' fill='white' text-anchor='middle' dominant-baseline='middle'%3EES%3C/text%3E%3C/svg%3E" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Endra Setiawan - Web Developer</title>
+        <link rel="icon" type="image/svg+xml"
+            href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' rx='32' ry='32' fill='%2300a35c'/%3E%3Ctext x='50%25' y='58%25' font-size='140' font-family='Arial, sans-serif' font-weight='700' fill='white' text-anchor='middle' dominant-baseline='middle'%3EES%3C/text%3E%3C/svg%3E" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <script>
         tailwind.config = {
             theme: {
                 extend: {
@@ -19,7 +20,7 @@
             }
         }
     </script>
-    <style>
+        <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         body { font-family: 'Inter', sans-serif; }
         .fade-in { animation: fadeIn 0.8s ease-in; }
@@ -30,518 +31,887 @@
         .hover-glow:hover { box-shadow: 0 0 30px rgba(22, 163, 74, 0.4); }
         .card-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); }
+        
+        /* Language Switcher Styles */
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+        .language-btn {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 8px 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 500;
+            color: #374151;
+        }
+        .language-btn:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transform: translateY(-1px);
+        }
+        .flag-icon {
+            width: 20px;
+            height: 15px;
+            border-radius: 2px;
+            overflow: hidden;
+            position: relative;
+        }
+        .flag-en {
+            background: linear-gradient(to bottom, #012169 0%, #012169 33%, #ffffff 33%, #ffffff 66%, #C8102E 66%, #C8102E 100%);
+        }
+        .flag-id {
+            background: linear-gradient(to bottom, #ffffff 0%, #ffffff 50%, #ce1126 50%, #ce1126 100%);
+        }
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 8px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            min-width: 140px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+        .language-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .language-option {
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+        .language-option:hover {
+            background: #f3f4f6;
+        }
+        .language-option.active {
+            background: #dcfce7;
+            color: #16a34a;
+            font-weight: 600;
+        }
+        @media (max-width: 768px) {
+            .language-switcher {
+                top: 10px;
+                right: 10px;
+            }
+            .language-btn span {
+                display: none;
+            }
+        }
+        
+        /* Translation styles */
+        .translated-id {
+            display: none;
+        }
+        body.id .translated-en {
+            display: none;
+        }
+        body.id .translated-id {
+            display: block;
+        }
     </style>
-</head>
-<body class="bg-white text-gray-800 antialiased">
-
-    <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-green-50/30 to-white relative overflow-hidden">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(22,163,74,0.05),transparent_50%)]"></div>
-        <div class="container mx-auto px-6 py-20 relative z-10 fade-in">
-            <div class="max-w-4xl mx-auto text-center">
-                <!-- Profile Image -->
-                <div class="mb-8 inline-block relative group">
-                    <div class="w-40 h-40 rounded-full bg-gradient-to-br from-green-400 to-green-600 p-1 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
-                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center">
-                            <!-- <div class="w-36 h-36 rounded-full bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center text-white text-5xl font-bold">
-                                ES
-                            </div> -->
-                            <div class="w-full h-full rounded-full flex items-center justify-center">
-    <div class="w-36 h-36 rounded-full bg-gradient-to-br from-green-500 to-green-700 p-1">
-        <img src="foto.jpg" 
-             alt="Profile Photo" 
-             class="w-full h-full object-cover rounded-full border-4 border-white">
-    </div>
-</div>
-
-                        </div>
-                    </div>
-                    <div class="absolute -bottom-2 -right-2 w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white animate-pulse">
-                        <i class="fas fa-check"></i>
-                    </div>
+    </head>
+    <body class="bg-white text-gray-800 antialiased">
+        <!-- Language Switcher -->
+        <div class="language-switcher">
+            <div class="language-btn" id="languageToggle">
+                <div class="flag-icon flag-en"></div>
+                <span>English</span>
+                <i class="fas fa-chevron-down text-xs text-gray-500"></i>
+            </div>
+            <div class="language-dropdown" id="languageDropdown">
+                <div class="language-option active" data-lang="en">
+                    <div class="flag-icon flag-en"></div>
+                    <span>English</span>
                 </div>
-
-                <!-- Name & Title -->
-                <h1 class="text-5xl md:text-7xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-green-800 tracking-tight">
-                    Endra Setiawan
-                </h1>
-         <p class="text-xl md:text-2xl text-gray-600 mb-3 font-medium">S.Kom</p>
-<p class="text-2xl md:text-3xl text-gray-700 mb-1 font-semibold mb-4">Project Leader & Sr. Web Developer </p>
-<!-- <p class="text-lg md:text-xl text-green-600 font-semibold">Project Lead & Senior Web Developer — CV. Watulintang Media</p> -->
-
-                
-                <!-- Open for Freelance Badge -->
-                <!-- <div class="inline-flex items-center gap-3 bg-green-500 text-white px-8 py-4 rounded-full shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 mb-12 cursor-pointer">
-                    <span class="w-3 h-3 bg-white rounded-full animate-pulse"></span>
-                    <span class="font-semibold text-lg">Open for Freelance Projects</span>
-                </div> -->
-
-                <div class="inline-flex items-center gap-3 bg-green-500 text-white px-8 py-4 rounded-full shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 mb-12 cursor-pointer">
-    <span class="w-3 h-3 bg-lime-300 rounded-full animate-ping absolute"></span>
-    <span class="w-3 h-3 bg-white rounded-full relative"></span>
-    <span class="font-semibold text-lg">Online & Ready to Work</span>
-</div>
-
-                <!-- Quick Stats -->
-                <div class="grid grid-cols-3 gap-6 max-w-2xl mx-auto">
-                    <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 card-hover">
-                        <p class="text-4xl font-bold text-green-600 mb-2">6+</p>
-                        <p class="text-gray-600 font-medium">Years Experience</p>
-                    </div>
-                    <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 card-hover">
-                        <p class="text-4xl font-bold text-green-600 mb-2">50+</p>
-                        <p class="text-gray-600 font-medium">Projects Done</p>
-                    </div>
-                    <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 card-hover">
-                        <p class="text-4xl font-bold text-green-600 mb-2">100%</p>
-                        <p class="text-gray-600 font-medium">Remote Work</p>
-                    </div>
+                <div class="language-option" data-lang="id">
+                    <div class="flag-icon flag-id"></div>
+                    <span>Indonesia</span>
                 </div>
             </div>
         </div>
 
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <i class="fas fa-chevron-down text-green-500 text-2xl"></i>
-        </div>
-    </section>
-
-    <!-- Social Media Section -->
-    <section class="py-12 bg-white border-t border-gray-100">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-wrap justify-center items-center gap-6">
-                <a href="https://linkedin.com/in/setiaendra18" target="_blank" class="w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white text-xl hover:scale-110 hover-glow transition-all duration-300">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="mailto:setiaendra18@gmail.com" class="w-14 h-14 rounded-full bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center text-white text-xl hover:scale-110 hover-glow transition-all duration-300">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://wa.me/6281343316931" target="_blank" class="w-14 h-14 rounded-full bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center text-white text-xl hover:scale-110 hover-glow transition-all duration-300">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="https://setiaendra18.github.io/" target="_blank" class="w-14 h-14 rounded-full bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center text-white text-xl hover:scale-110 hover-glow transition-all duration-300">
-                    <i class="fas fa-globe"></i>
-                </a>
-               <a href="https://github.com/setiaendra18" target="_blank" class="w-14 h-14 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center text-white text-xl hover:scale-110 hover-glow transition-all duration-300">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.tiktok.com/@setiaendra18" target="_blank" class="w-14 h-14 rounded-full bg-gradient-to-br from-black to-gray-800 flex items-center justify-center text-white text-xl hover:scale-110 hover-glow transition-all duration-300">
-    <i class="fab fa-tiktok"></i>
-</a>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- About Me Section -->
-    <section id="about" class="py-24 bg-gradient-to-br from-white via-green-50/20 to-white">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800">About Me</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-green-500 to-green-700 mx-auto mb-16 rounded-full"></div>
-                
-                <div class="bg-white rounded-3xl p-10 shadow-xl card-hover">
-                    <div class="flex items-start gap-6 mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-700 rounded-2xl flex items-center justify-center text-white text-2xl flex-shrink-0">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-800 mb-4">Professional Summary</h3>
-                            <p class="text-gray-600 leading-relaxed text-lg mb-4">
-                                A professional website developer with a background in website application development for more than 6 years. I live in a remote village and work remotely professionally full time or freelance.
-                            </p>
-                            <p class="text-gray-600 leading-relaxed text-lg">
-                                In general, my expertise is website development from scratch up to developing front-end and back-end, especially <span class="font-semibold text-green-600">Laravel</span>, <span class="font-semibold text-green-600">CodeIgniter</span>, and <span class="font-semibold text-green-600">WordPress</span>.
-                            </p>
-                            <p class="text-gray-600 leading-relaxed text-lg mt-4">
-                                Living in a remote village, I work remotely either full-time or as a freelancer, delivering professional web solutions to clients locally and internationally.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="grid md:grid-cols-2 gap-6 mt-8">
-                     <div class="flex items-center gap-4 p-4 bg-green-50 rounded-2xl">
-    <i class="fas fa-map-marker-alt text-green-600 text-xl"></i>
-    <div>
-        <p class="text-sm text-gray-500">Location</p>
-        <p class="font-semibold text-gray-800">Gunungkidul, Yogyakarta, Indonesia</p>
-    </div>
-</div>
-
-                       <div class="flex items-center gap-4 p-4 bg-green-50 rounded-2xl">
-    <i class="fas fa-user-check text-green-600 text-xl"></i>
-    <div>
-        <p class="text-sm text-gray-500">Availability</p>
-        <p class="font-semibold text-gray-800">Open for  Freelance</p>
-    </div>
-</div>
-
-                        <div class="flex items-center gap-4 p-4 bg-green-50 rounded-2xl">
-                            <i class="fas fa-language text-green-600 text-xl"></i>
-                            <div>
-                                <p class="text-sm text-gray-500">Languages</p>
-                                <p class="font-semibold text-gray-800">Indonesia (Native), <a href="https://cert.efset.org/SRMFNX" class="font-semibold text-green-600 hover:text-green-400">English (B1)</a></p>
+        <!-- Hero Section -->
+        <section
+            class="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-green-50/30 to-white relative overflow-hidden">
+            <div
+                class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(22,163,74,0.05),transparent_50%)]"></div>
+            <div class="container mx-auto px-6 py-20 relative z-10 fade-in">
+                <div class="max-w-4xl mx-auto text-center">
+                    <!-- Profile Image -->
+                    <div class="mb-8 inline-block relative group">
+                        <div
+                            class="w-40 h-40 rounded-full bg-gradient-to-br from-green-400 to-green-600 p-1 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
+                            <div
+                                class="w-full h-full rounded-full bg-white flex items-center justify-center">
+                                <div
+                                    class="w-full h-full rounded-full flex items-center justify-center">
+                                    <div
+                                        class="w-36 h-36 rounded-full bg-gradient-to-br from-green-500 to-green-700 p-1">
+                                        <img src="foto.jpg"
+                                            alt="Profile Photo"
+                                            class="w-full h-full object-cover rounded-full border-4 border-white">
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="flex items-center gap-4 p-4 bg-green-50 rounded-2xl">
-                            <i class="fas fa-briefcase text-green-600 text-xl"></i>
+                        <div
+                            class="absolute -bottom-2 -right-2 w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white animate-pulse">
+                            <i class="fas fa-check"></i>
+                        </div>
+                    </div>
+                    <!-- Name & Title -->
+                    <h1
+                        class="text-5xl md:text-7xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-green-800 tracking-tight">
+                        Endra Setiawan
+                    </h1>
+                    <p
+                        class="text-xl md:text-2xl text-gray-600 mb-3 font-medium">S.Kom</p>
+                    <p
+                        class="text-2xl md:text-3xl text-gray-700 mb-1 font-semibold mb-4 translated-en">Project
+                        Leader & Sr. Web Developer</p>
+                    <p
+                        class="text-2xl md:text-3xl text-gray-700 mb-1 font-semibold mb-4 translated-id">
+                        Pemimpin Proyek & Pengembang Web Senior
+                    </p>
+                    <div
+                        class="inline-flex items-center gap-3 bg-green-500 text-white px-8 py-4 rounded-full shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 mb-12 cursor-pointer">
+                        <span
+                            class="w-3 h-3 bg-lime-300 rounded-full animate-ping absolute"></span>
+                        <span
+                            class="w-3 h-3 bg-white rounded-full relative"></span>
+                        <span class="font-semibold text-lg translated-en">Online & Ready to
+                            Work</span>
+                        <span class="font-semibold text-lg translated-id">Online & Siap
+                            Bekerja</span>
+                    </div>
+                    <!-- Quick Stats -->
+                    <div class="grid grid-cols-3 gap-6 max-w-2xl mx-auto">
+                        <div
+                            class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 card-hover">
+                            <p
+                                class="text-4xl font-bold text-green-600 mb-2">6+</p>
+                            <p class="text-gray-600 font-medium translated-en">Years
+                                Experience</p>
+                            <p class="text-gray-600 font-medium translated-id">Tahun
+                                Pengalaman</p>
+                        </div>
+                        <div
+                            class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 card-hover">
+                            <p
+                                class="text-4xl font-bold text-green-600 mb-2">50+</p>
+                            <p class="text-gray-600 font-medium translated-en">Projects
+                                Done</p>
+                            <p class="text-gray-600 font-medium translated-id">Proyek
+                                Diselesaikan</p>
+                        </div>
+                        <div
+                            class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 card-hover">
+                            <p
+                                class="text-4xl font-bold text-green-600 mb-2">100%</p>
+                            <p class="text-gray-600 font-medium translated-en">Remote Work</p>
+                            <p class="text-gray-600 font-medium translated-id">Kerja
+                                Jarak Jauh</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Scroll Indicator -->
+            <div
+                class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <i class="fas fa-chevron-down text-green-500 text-2xl"></i>
+            </div>
+        </section>
+        <!-- Social Media Section -->
+        <section class="py-12 bg-white border-t border-gray-100">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-wrap justify-center items-center gap-6">
+                    <a href="https://linkedin.com/in/setiaendra18"
+                        target="_blank"
+                        class="w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white text-xl hover:scale-110 hover-glow transition-all duration-300">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="mailto:setiaendra18@gmail.com"
+                        class="w-14 h-14 rounded-full bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center text-white text-xl hover:scale-110 hover-glow transition-all duration-300">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://wa.me/6281343316931" target="_blank"
+                        class="w-14 h-14 rounded-full bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center text-white text-xl hover:scale-110 hover-glow transition-all duration-300">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://setiaendra18.github.io/" target="_blank"
+                        class="w-14 h-14 rounded-full bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center text-white text-xl hover:scale-110 hover-glow transition-all duration-300">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                    <a href="https://github.com/setiaendra18" target="_blank"
+                        class="w-14 h-14 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center text-white text-xl hover:scale-110 hover-glow transition-all duration-300">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@setiaendra18"
+                        target="_blank"
+                        class="w-14 h-14 rounded-full bg-gradient-to-br from-black to-gray-800 flex items-center justify-center text-white text-xl hover:scale-110 hover-glow transition-all duration-300">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- About Me Section -->
+        <section id="about"
+            class="py-24 bg-gradient-to-br from-white via-green-50/20 to-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto">
+                    <h2
+                        class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800 translated-en">About
+                        Me</h2>
+                    <h2
+                        class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800 translated-id">Tentang
+                        Saya</h2>
+                    <div
+                        class="w-24 h-1 bg-gradient-to-r from-green-500 to-green-700 mx-auto mb-16 rounded-full"></div>
+                    <div class="bg-white rounded-3xl p-10 shadow-xl card-hover">
+                        <div class="flex items-start gap-6 mb-6">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-700 rounded-2xl flex items-center justify-center text-white text-2xl flex-shrink-0">
+                                <i class="fas fa-user"></i>
+                            </div>
                             <div>
-                                <p class="text-sm text-gray-500">Work Type</p>
-                                <p class="font-semibold text-gray-800">100% Remote</p>
+                                <h3
+                                    class="text-2xl font-bold text-gray-800 mb-4 translated-en">Professional
+                                    Summary</h3>
+                                <h3
+                                    class="text-2xl font-bold text-gray-800 mb-4 translated-id">Ringkasan
+                                    Profesional</h3>
+                                <p
+                                    class="text-gray-600 leading-relaxed text-lg mb-4 translated-en">
+                                    A professional website developer with a
+                                    background in website application
+                                    development for more than 6 years. I live in
+                                    a remote village and work remotely
+                                    professionally full time or freelance.
+                                </p>
+                                <p
+                                    class="text-gray-600 leading-relaxed text-lg mb-4 translated-id">
+                                    Seorang pengembang website profesional dengan
+                                    latar belakang pengembangan aplikasi website
+                                    selama lebih dari 6 tahun. Saya tinggal di
+                                    desa terpencil dan bekerja secara remote
+                                    secara profesional penuh waktu atau freelance.
+                                </p>
+                                <p
+                                    class="text-gray-600 leading-relaxed text-lg translated-en">
+                                    In general, my expertise is website
+                                    development from scratch up to developing
+                                    front-end and back-end, especially <span
+                                        class="font-semibold text-green-600">Laravel</span>,
+                                    <span
+                                        class="font-semibold text-green-600">CodeIgniter</span>,
+                                    and <span
+                                        class="font-semibold text-green-600">WordPress</span>.
+                                </p>
+                                <p
+                                    class="text-gray-600 leading-relaxed text-lg translated-id">
+                                    Secara umum, keahlian saya adalah pengembangan
+                                    website dari awal hingga mengembangkan
+                                    front-end dan back-end, terutama <span
+                                        class="font-semibold text-green-600">Laravel</span>,
+                                    <span
+                                        class="font-semibold text-green-600">CodeIgniter</span>,
+                                    dan <span
+                                        class="font-semibold text-green-600">WordPress</span>.
+                                </p>
+                                <p
+                                    class="text-gray-600 leading-relaxed text-lg mt-4 translated-en">
+                                    Living in a remote village, I work remotely
+                                    either full-time or as a freelancer,
+                                    delivering professional web solutions to
+                                    clients locally and internationally.
+                                </p>
+                                <p
+                                    class="text-gray-600 leading-relaxed text-lg mt-4 translated-id">
+                                    Tinggal di desa terpencil, saya bekerja secara
+                                    remote baik penuh waktu atau sebagai freelancer,
+                                    memberikan solusi web profesional kepada
+                                    klien lokal dan internasional.
+                                </p>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="py-24 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="max-w-6xl mx-auto">
-                <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800">Skills & Expertise</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-green-500 to-green-700 mx-auto mb-16 rounded-full"></div>
-
-                <!-- Hard Skills -->
-                <div class="mb-12">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-8 flex items-center gap-3">
-                        <div class="w-10 h-10 bg-gradient-to-br from-green-500 to-green-700 rounded-xl flex items-center justify-center text-white">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        Technical Skills
-                    </h3>
-                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                        <div class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
-                            <i class="fab fa-laravel text-4xl text-red-600 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
-                            <p class="font-semibold text-gray-800">Laravel</p>
-                        </div>
-                        <div class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
-                            <i class="fas fa-fire text-4xl text-orange-600 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
-                            <p class="font-semibold text-gray-800">CodeIgniter</p>
-                        </div>
-                        <div class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
-                            <i class="fab fa-wordpress text-4xl text-blue-600 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
-                            <p class="font-semibold text-gray-800">WordPress</p>
-                        </div>
-                        <div class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
-                            <i class="fab fa-php text-4xl text-purple-600 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
-                            <p class="font-semibold text-gray-800">PHP</p>
-                        </div>
-                        <div class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
-                            <i class="fab fa-js text-4xl text-yellow-500 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
-                            <p class="font-semibold text-gray-800">JavaScript</p>
-                        </div>
-                        <div class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
-                            <i class="fab fa-html5 text-4xl text-orange-600 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
-                            <p class="font-semibold text-gray-800">HTML5</p>
-                        </div>
-                        <div class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
-                            <i class="fab fa-css3-alt text-4xl text-blue-600 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
-                            <p class="font-semibold text-gray-800">CSS3</p>
-                        </div>
-                        <div class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
-                            <i class="fas fa-database text-4xl text-green-600 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
-                            <p class="font-semibold text-gray-800">MySQL</p>
-                        </div>
-                        <div class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
-                            <i class="fab fa-git-alt text-4xl text-orange-600 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
-                            <p class="font-semibold text-gray-800">Git</p>
-                        </div>
-                        <div class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
-                            <i class="fas fa-server text-4xl text-gray-600 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
-                            <p class="font-semibold text-gray-800">REST API</p>
-                        </div>
-                         <!-- Oracle -->
-        <div class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
-            <i class="fas fa-database text-4xl text-red-700 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
-            <p class="font-semibold text-gray-800">Oracle</p>
-        </div>
-
-        <!-- PostgreSQL -->
-        <div class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
-            <i class="fas fa-database text-4xl text-blue-700 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
-            <p class="font-semibold text-gray-800">PostgreSQL</p>
-        </div>
-
-        <!-- Vue.js -->
-        <div class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
-            <i class="fab fa-vuejs text-4xl text-green-600 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
-            <p class="font-semibold text-gray-800">Vue.js</p>
-        </div>
-        <!-- Livewire -->
-<div class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
-    <i class="fas fa-bolt text-4xl text-pink-600 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
-    <p class="font-semibold text-gray-800">Livewire</p>
-</div>
-
-                    </div>
-                </div>
-
-                <!-- Soft Skills -->
-                <div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-8 flex items-center gap-3">
-                        <div class="w-10 h-10 bg-gradient-to-br from-green-500 to-green-700 rounded-xl flex items-center justify-center text-white">
-                            <i class="fas fa-lightbulb"></i>
-                        </div>
-                        Professional Skills
-                    </h3>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        <div class="bg-gradient-to-br from-green-500 to-green-700 text-white rounded-2xl p-6 text-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl">
-                            <i class="fas fa-users text-3xl mb-3"></i>
-                            <p class="font-semibold">Team Collaboration</p>
-                        </div>
-                        <div class="bg-gradient-to-br from-green-500 to-green-700 text-white rounded-2xl p-6 text-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl">
-                            <i class="fas fa-tasks text-3xl mb-3"></i>
-                            <p class="font-semibold">Project Management</p>
-                        </div>
-                        <div class="bg-gradient-to-br from-green-500 to-green-700 text-white rounded-2xl p-6 text-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl">
-                            <i class="fas fa-comments text-3xl mb-3"></i>
-                            <p class="font-semibold">Communication</p>
-                        </div>
-                        <div class="bg-gradient-to-br from-green-500 to-green-700 text-white rounded-2xl p-6 text-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl">
-                            <i class="fas fa-clock text-3xl mb-3"></i>
-                            <p class="font-semibold">Time Management</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="py-24 bg-gradient-to-br from-white via-green-50/20 to-white">
-        <div class="container mx-auto px-6">
-            <div class="max-w-5xl mx-auto">
-                <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800">Work Experience</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-green-500 to-green-700 mx-auto mb-16 rounded-full"></div>
-
-                <div class="space-y-8">
-                    <!-- Experience 1 -->
-                    <!-- <div class="bg-white rounded-3xl p-8 shadow-xl card-hover relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-500/10 to-green-700/10 rounded-bl-full"></div>
-                        <div class="relative z-10">
-                            <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                        <div class="grid md:grid-cols-2 gap-6 mt-8">
+                            <div
+                                class="flex items-center gap-4 p-4 bg-green-50 rounded-2xl">
+                                <i
+                                    class="fas fa-map-marker-alt text-green-600 text-xl"></i>
                                 <div>
-                                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Mid Full Stack Web Developer</h3>
-                                    <p class="text-green-600 font-semibold text-lg mb-1">WATU LINTANG MEDIA LIMITED PARTNERSHIP</p>
-                                    <a href="https://watulintang.com" target="_blank" class="text-gray-500 hover:text-green-600 transition-colors">
-                                        <i class="fas fa-link mr-2"></i>watulintang.com
+                                    <p
+                                        class="text-sm text-gray-500 translated-en">Location</p>
+                                    <p
+                                        class="text-sm text-gray-500 translated-id">Lokasi</p>
+                                    <p
+                                        class="font-semibold text-gray-800">Gunungkidul,
+                                        Yogyakarta, Indonesia</p>
+                                </div>
+                            </div>
+                            <div
+                                class="flex items-center gap-4 p-4 bg-green-50 rounded-2xl">
+                                <i
+                                    class="fas fa-user-check text-green-600 text-xl"></i>
+                                <div>
+                                    <p
+                                        class="text-sm text-gray-500 translated-en">Availability</p>
+                                    <p
+                                        class="text-sm text-gray-500 translated-id">Ketersediaan</p>
+                                    <p class="font-semibold text-gray-800 translated-en">Open
+                                        for Freelance</p>
+                                    <p class="font-semibold text-gray-800 translated-id">Terbuka
+                                        untuk Freelance</p>
+                                </div>
+                            </div>
+                            <div
+                                class="flex items-center gap-4 p-4 bg-green-50 rounded-2xl">
+                                <i
+                                    class="fas fa-language text-green-600 text-xl"></i>
+                                <div>
+                                    <p
+                                        class="text-sm text-gray-500 translated-en">Languages</p>
+                                    <p
+                                        class="text-sm text-gray-500 translated-id">Bahasa</p>
+                                    <p
+                                        class="font-semibold text-gray-800 translated-en">Indonesia
+                                        (Native), <a
+                                            href="https://cert.efset.org/SRMFNX"
+                                            class="font-semibold text-green-600 hover:text-green-400">English
+                                            (B1)</a></p>
+                                    <p
+                                        class="font-semibold text-gray-800 translated-id">Indonesia
+                                        (Native), <a
+                                            href="https://cert.efset.org/SRMFNX"
+                                            class="font-semibold text-green-600 hover:text-green-400">Inggris
+                                            (B1)</a></p>
+                                </div>
+                            </div>
+                            <div
+                                class="flex items-center gap-4 p-4 bg-green-50 rounded-2xl">
+                                <i
+                                    class="fas fa-briefcase text-green-600 text-xl"></i>
+                                <div>
+                                    <p class="text-sm text-gray-500 translated-en">Work
+                                        Type</p>
+                                    <p class="text-sm text-gray-500 translated-id">Tipe
+                                        Kerja</p>
+                                    <p class="font-semibold text-gray-800 translated-en">100%
+                                        Remote</p>
+                                    <p class="font-semibold text-gray-800 translated-id">100%
+                                        Jarak Jauh</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Skills Section -->
+        <section id="skills" class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-6xl mx-auto">
+                    <h2
+                        class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800 translated-en">Skills
+                        & Expertise</h2>
+                    <h2
+                        class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800 translated-id">Keterampilan
+                        & Keahlian</h2>
+                    <div
+                        class="w-24 h-1 bg-gradient-to-r from-green-500 to-green-700 mx-auto mb-16 rounded-full"></div>
+                    <!-- Hard Skills -->
+                    <div class="mb-12">
+                        <h3
+                            class="text-2xl font-bold text-gray-800 mb-8 flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 bg-gradient-to-br from-green-500 to-green-700 rounded-xl flex items-center justify-center text-white">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <span class="translated-en">Technical Skills</span>
+                            <span class="translated-id">Keterampilan Teknis</span>
+                        </h3>
+                        <div
+                            class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                            <div
+                                class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
+                                <i
+                                    class="fab fa-laravel text-4xl text-red-600 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
+                                <p
+                                    class="font-semibold text-gray-800">Laravel</p>
+                            </div>
+                            <div
+                                class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
+                                <i
+                                    class="fas fa-fire text-4xl text-orange-600 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
+                                <p
+                                    class="font-semibold text-gray-800">CodeIgniter</p>
+                            </div>
+                            <div
+                                class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
+                                <i
+                                    class="fab fa-wordpress text-4xl text-blue-600 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
+                                <p
+                                    class="font-semibold text-gray-800">WordPress</p>
+                            </div>
+                            <div
+                                class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
+                                <i
+                                    class="fab fa-php text-4xl text-purple-600 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
+                                <p class="font-semibold text-gray-800">PHP</p>
+                            </div>
+                            <div
+                                class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
+                                <i
+                                    class="fab fa-js text-4xl text-yellow-500 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
+                                <p
+                                    class="font-semibold text-gray-800">JavaScript</p>
+                            </div>
+                            <div
+                                class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
+                                <i
+                                    class="fab fa-html5 text-4xl text-orange-600 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
+                                <p class="font-semibold text-gray-800">HTML5</p>
+                            </div>
+                            <div
+                                class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
+                                <i
+                                    class="fab fa-css3-alt text-4xl text-blue-600 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
+                                <p class="font-semibold text-gray-800">CSS3</p>
+                            </div>
+                            <div
+                                class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
+                                <i
+                                    class="fas fa-database text-4xl text-green-600 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
+                                <p class="font-semibold text-gray-800">MySQL</p>
+                            </div>
+                            <div
+                                class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
+                                <i
+                                    class="fab fa-git-alt text-4xl text-orange-600 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
+                                <p class="font-semibold text-gray-800">Git</p>
+                            </div>
+                            <div
+                                class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
+                                <i
+                                    class="fas fa-server text-4xl text-gray-600 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
+                                <p class="font-semibold text-gray-800">REST
+                                    API</p>
+                            </div>
+                            <!-- Oracle -->
+                            <div
+                                class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
+                                <i
+                                    class="fas fa-database text-4xl text-red-700 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
+                                <p
+                                    class="font-semibold text-gray-800">Oracle</p>
+                            </div>
+                            <!-- PostgreSQL -->
+                            <div
+                                class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
+                                <i
+                                    class="fas fa-database text-4xl text-blue-700 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
+                                <p
+                                    class="font-semibold text-gray-800">PostgreSQL</p>
+                            </div>
+                            <!-- Vue.js -->
+                            <div
+                                class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
+                                <i
+                                    class="fab fa-vuejs text-4xl text-green-600 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
+                                <p
+                                    class="font-semibold text-gray-800">Vue.js</p>
+                            </div>
+                            <!-- Livewire -->
+                            <div
+                                class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
+                                <i
+                                    class="fas fa-bolt text-4xl text-pink-600 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
+                                <p
+                                    class="font-semibold text-gray-800">Livewire</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Soft Skills -->
+                    <div>
+                        <h3
+                            class="text-2xl font-bold text-gray-800 mb-8 flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 bg-gradient-to-br from-green-500 to-green-700 rounded-xl flex items-center justify-center text-white">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <span class="translated-en">Professional Skills</span>
+                            <span class="translated-id">Keterampilan Profesional</span>
+                        </h3>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div
+                                class="bg-gradient-to-br from-green-500 to-green-700 text-white rounded-2xl p-6 text-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl">
+                                <i class="fas fa-users text-3xl mb-3"></i>
+                                <p class="font-semibold translated-en">Team Collaboration</p>
+                                <p class="font-semibold translated-id">Kolaborasi Tim</p>
+                            </div>
+                            <div
+                                class="bg-gradient-to-br from-green-500 to-green-700 text-white rounded-2xl p-6 text-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl">
+                                <i class="fas fa-tasks text-3xl mb-3"></i>
+                                <p class="font-semibold translated-en">Project Management</p>
+                                <p class="font-semibold translated-id">Manajemen Proyek</p>
+                            </div>
+                            <div
+                                class="bg-gradient-to-br from-green-500 to-green-700 text-white rounded-2xl p-6 text-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl">
+                                <i class="fas fa-comments text-3xl mb-3"></i>
+                                <p class="font-semibold translated-en">Communication</p>
+                                <p class="font-semibold translated-id">Komunikasi</p>
+                            </div>
+                            <div
+                                class="bg-gradient-to-br from-green-500 to-green-700 text-white rounded-2xl p-6 text-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl">
+                                <i class="fas fa-clock text-3xl mb-3"></i>
+                                <p class="font-semibold translated-en">Time Management</p>
+                                <p class="font-semibold translated-id">Manajemen Waktu</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Experience Section -->
+        <section id="experience"
+            class="py-24 bg-gradient-to-br from-white via-green-50/20 to-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-5xl mx-auto">
+                    <h2
+                        class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800 translated-en">Work
+                        Experience</h2>
+                    <h2
+                        class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800 translated-id">Pengalaman
+                        Kerja</h2>
+                    <div
+                        class="w-24 h-1 bg-gradient-to-r from-green-500 to-green-700 mx-auto mb-16 rounded-full"></div>
+                    <div class="space-y-8">
+                        <div
+                            class="bg-white rounded-3xl p-8 shadow-xl card-hover relative overflow-hidden">
+                            <!-- Background Accent -->
+                            <div
+                                class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-500/10 to-green-700/10 rounded-bl-full"></div>
+                            <div class="relative z-10">
+                                <!-- HEADER COMPANY -->
+                                <div class="mb-4">
+                                    <h2
+                                        class="text-3xl font-bold text-gray-800">CV.
+                                        Watulintang Media</h2>
+                                    <a href="https://watulintang.com"
+                                        target="_blank"
+                                        class="text-gray-500 hover:text-green-600 transition-colors inline-flex items-center gap-2">
+                                        <i class="fas fa-link"></i>
+                                        watulintang.com
                                     </a>
                                 </div>
-                                <div class="text-right">
-                                    <span class="inline-block bg-green-100 text-green-700 px-4 py-2 rounded-full font-semibold">2022 - Present</span>
-                                    <p class="text-sm text-gray-500 mt-2">Full Time Remote</p>
-                                </div>
-                            </div>
-                            <ul class="space-y-3 text-gray-600">
-                                <li class="flex items-start gap-3">
-                                    <i class="fas fa-check-circle text-green-600 mt-1"></i>
-                                    <span>Collaborate in discussions every time starting a new project</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i class="fas fa-check-circle text-green-600 mt-1"></i>
-                                    <span>Create database based on system and client requirements</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i class="fas fa-check-circle text-green-600 mt-1"></i>
-                                    <span>Develop core application, slicing templates for frontend and administrator panel</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i class="fas fa-check-circle text-green-600 mt-1"></i>
-                                    <span>Create API for mobile application consumption needs</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i class="fas fa-check-circle text-green-600 mt-1"></i>
-                                    <span>Monitor, update and fix bugs regularly</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i class="fas fa-check-circle text-green-600 mt-1"></i>
-                                    <span>Create technical documentation</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div> -->
-
-                    <div class="bg-white rounded-3xl p-8 shadow-xl card-hover relative overflow-hidden">
-    <!-- Background Accent -->
-    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-500/10 to-green-700/10 rounded-bl-full"></div>
-
-    <div class="relative z-10">
-
-        <!-- HEADER COMPANY -->
-        <div class="mb-4">
-            <h2 class="text-3xl font-bold text-gray-800">CV. Watulintang Media</h2>
-            <a href="https://watulintang.com" target="_blank"
-                class="text-gray-500 hover:text-green-600 transition-colors inline-flex items-center gap-2">
-                <i class="fas fa-link"></i> watulintang.com
-            </a>
-        </div>
-
- 
-        
-
-        <!-- TIMELINE WRAPPER -->
-        <div class="relative  pl-8 space-y-12">
-
-        
-
-            <!-- ITEM 1 -->
-            <div class="relative">
-                <!-- DOT WITH WHITE CENTER -->
-                <div class="absolute -left-[29px] top-1 w-6 h-6 bg-green-600 rounded-full shadow-md flex items-center justify-center">
-                    <div class="w-3 h-3 bg-white rounded-full"></div>
-                </div>
-
-                <h4 class="text-2xl font-bold text-gray-800">Project Leader</h4>
-                <p class="text-green-600 font-semibold">Full-time Hybrid· Watulintang Media</p>
-                <p class="text-gray-500 text-sm mb-4">
-                    Jul 2025 – Present · 5 months · Gunungkidul, Yogyakarta
-                </p>
-
-                <ul class="space-y-2 text-gray-600">
-                    <li class="flex items-start gap-3">
-                        <i class="fas fa-check-circle text-green-600 mt-1"></i>
-                        Lead and manage end-to-end project execution.
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <i class="fas fa-check-circle text-green-600 mt-1"></i>
-                        Coordinate tasks across developers and teams.
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <i class="fas fa-check-circle text-green-600 mt-1"></i>
-                        Ensure code quality through reviews & best practices.
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <i class="fas fa-check-circle text-green-600 mt-1"></i>
-                        Solve technical problems & guide decisions.
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <i class="fas fa-check-circle text-green-600 mt-1"></i>
-                        Mentor junior developers & support growth.
-                    </li>
-                </ul>
-            </div>
-
-            <!-- ITEM 2 -->
-            <div class="relative">
-                <div class="absolute -left-[29px] top-1 w-6 h-6 bg-green-600 rounded-full shadow-md flex items-center justify-center">
-                    <div class="w-3 h-3 bg-white rounded-full"></div>
-                </div>
-
-                <h4 class="text-2xl font-bold text-gray-800">Senior Web Developer</h4>
-                <p class="text-green-600 font-semibold">Full-time Hybrid · Watulintang Media</p>
-                <p class="text-gray-500 text-sm mb-4">
-                    Jul 2023 – Jul 2025 · 2 years 1 month · Gunungkidul, Yogyakarta
-                </p>
-
-                <ul class="space-y-2 text-gray-600">
-                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-600 mt-1"></i>Project planning & technical discussions.</li>
-                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-600 mt-1"></i>Create database according to system & client needs.</li>
-                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-600 mt-1"></i>Develop core application + slicing templates.</li>
-                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-600 mt-1"></i>Create REST API for mobile apps.</li>
-                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-600 mt-1"></i>Monitor, update & fix bugs.</li>
-                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-600 mt-1"></i>Maintain technical documentation.</li>
-                </ul>
-            </div>
-
-            <!-- ITEM 3 -->
-            <div class="relative">
-                <div class="absolute -left-[29px] top-1 w-6 h-6 bg-green-600 rounded-full shadow-md flex items-center justify-center">
-                    <div class="w-3 h-3 bg-white rounded-full"></div>
-                </div>
-
-                <h4 class="text-2xl font-bold text-gray-800">Frontend Web Developer</h4>
-                <p class="text-green-600 font-semibold">Fulltime Remote · Watulintang Media</p>
-                <p class="text-gray-500 text-sm mb-4">
-                    Oct 2022 – Jun 2023 · 9 months · Gunungkidul, Yogyakarta
-                </p>
-
-                <ul class="space-y-2 text-gray-600">
-                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-600 mt-1"></i>Laravel-based frontend development.</li>
-                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-600 mt-1"></i>Responsive UI/UX for web apps.</li>
-                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-600 mt-1"></i>Integrating frontend with backend APIs.</li>
-                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-600 mt-1"></i>Performance, accessibility & SEO improvements.</li>
-                </ul>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-                    <!-- Experience 2 -->
-                    <div class="bg-white rounded-3xl p-8 shadow-xl card-hover relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-500/10 to-green-700/10 rounded-bl-full"></div>
-                        <div class="relative z-10">
-                            <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
-                                <div>
-                                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Freelance Web Developer</h3>
-                                    <p class="text-green-600 font-semibold text-lg">ZADA CREATIVE MEDIA</p>
-                                </div>
-                                <div class="text-right">
-                                    <span class="inline-block bg-gray-100 text-gray-700 px-4 py-2 rounded-full font-semibold">2018 - 2022</span>
-                                    <p class="text-sm text-gray-500 mt-2">Self Employed</p>
-                                </div>
-                            </div>
-                            <p class="text-gray-600 mb-4">
-                                Built a professional software development agency specializing in web and mobile applications for medium-sized businesses and students.
-                            </p>
-                            <ul class="space-y-3 text-gray-600">
-                                <li class="flex items-start gap-3">
-                                    <i class="fas fa-check-circle text-green-600 mt-1"></i>
-                                    <span>Full-Stack Development - contribute to web application development</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i class="fas fa-check-circle text-green-600 mt-1"></i>
-                                    <span>Project Management - coordinating programming team for on-time delivery</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i class="fas fa-check-circle text-green-600 mt-1"></i>
-                                    <span>Create branding such as logos and social media requirements</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i class="fas fa-check-circle text-green-600 mt-1"></i>
-                                    <span>Create documentation, invoices and proposals for clients</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="py-24 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="max-w-5xl mx-auto">
-                <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800">Education</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-green-500 to-green-700 mx-auto mb-16 rounded-full"></div>
-
-                <div class="bg-white rounded-3xl p-10 shadow-xl card-hover relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-green-500/10 to-green-700/10 rounded-bl-full"></div>
-                    <div class="relative z-10">
-                        <div class="flex items-start gap-6">
-                            <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-green-700 rounded-2xl flex items-center justify-center text-white text-3xl flex-shrink-0">
-                                <i class="fas fa-graduation-cap"></i>
-                            </div>
-                            <div class="flex-1">
-                                <div class="flex flex-wrap justify-between items-start gap-4 mb-4">
-                                    <div>
-                                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Bachelor of Computer Science</h3>
-                                        <p class="text-green-600 font-semibold text-lg mb-1">Digital Technology University of Indonesia (UTDI)</p>
-                                        <p class="text-gray-500">Faculty of Information Technology, Informatics</p>
+                                <!-- TIMELINE WRAPPER -->
+                                <div class="relative  pl-8 space-y-12">
+                                    <!-- ITEM 1 -->
+                                    <div class="relative">
+                                        <!-- DOT WITH WHITE CENTER -->
+                                        <div
+                                            class="absolute -left-[29px] top-1 w-6 h-6 bg-green-600 rounded-full shadow-md flex items-center justify-center">
+                                            <div
+                                                class="w-3 h-3 bg-white rounded-full"></div>
+                                        </div>
+                                        <h4
+                                            class="text-2xl font-bold text-gray-800 translated-en">Project
+                                            Leader</h4>
+                                        <h4
+                                            class="text-2xl font-bold text-gray-800 translated-id">Pemimpin
+                                            Proyek</h4>
+                                        <p
+                                            class="text-green-600 font-semibold translated-en">Full-time
+                                            Hybrid· Watulintang Media</p>
+                                        <p
+                                            class="text-green-600 font-semibold translated-id">Penuh
+                                            Waktu Hybrid· Watulintang Media</p>
+                                        <p class="text-gray-500 text-sm mb-4">
+                                            Jul 2025 – Present · 5 months ·
+                                            Gunungkidul, Yogyakarta
+                                        </p>
+                                        <ul class="space-y-2 text-gray-600">
+                                            <li class="flex items-start gap-3">
+                                                <i
+                                                    class="fas fa-check-circle text-green-600 mt-1"></i>
+                                                <span class="translated-en">Lead and manage end-to-end
+                                                    project execution.</span>
+                                                <span class="translated-id">Memimpin dan mengelola
+                                                    eksekusi proyek dari awal hingga akhir.</span>
+                                            </li>
+                                            <li class="flex items-start gap-3">
+                                                <i
+                                                    class="fas fa-check-circle text-green-600 mt-1"></i>
+                                                <span class="translated-en">Coordinate tasks across
+                                                    developers and teams.</span>
+                                                <span class="translated-id">Mengkoordinasikan tugas
+                                                    antar pengembang dan tim.</span>
+                                            </li>
+                                            <li class="flex items-start gap-3">
+                                                <i
+                                                    class="fas fa-check-circle text-green-600 mt-1"></i>
+                                                <span class="translated-en">Ensure code quality through
+                                                    reviews & best practices.</span>
+                                                <span class="translated-id">Memastikan kualitas kode
+                                                    melalui tinjauan & praktik terbaik.</span>
+                                            </li>
+                                            <li class="flex items-start gap-3">
+                                                <i
+                                                    class="fas fa-check-circle text-green-600 mt-1"></i>
+                                                <span class="translated-en">Solve technical problems & guide
+                                                    decisions.</span>
+                                                <span class="translated-id">Memecahkan masalah teknis &
+                                                    memandu keputusan.</span>
+                                            </li>
+                                            <li class="flex items-start gap-3">
+                                                <i
+                                                    class="fas fa-check-circle text-green-600 mt-1"></i>
+                                                <span class="translated-en">Mentor junior developers &
+                                                    support growth.</span>
+                                                <span class="translated-id">Membimbing pengembang junior
+                                                    & mendukung pertumbuhan.</span>
+                                            </li>
+                                        </ul>
                                     </div>
-                                    <span class="inline-block bg-green-100 text-green-700 px-4 py-2 rounded-full font-semibold">2015 - 2019</span>
+                                    <!-- ITEM 2 -->
+                                    <div class="relative">
+                                        <div
+                                            class="absolute -left-[29px] top-1 w-6 h-6 bg-green-600 rounded-full shadow-md flex items-center justify-center">
+                                            <div
+                                                class="w-3 h-3 bg-white rounded-full"></div>
+                                        </div>
+                                        <h4
+                                            class="text-2xl font-bold text-gray-800 translated-en">Senior
+                                            Web Developer</h4>
+                                        <h4
+                                            class="text-2xl font-bold text-gray-800 translated-id">Pengembang
+                                            Web Senior</h4>
+                                        <p
+                                            class="text-green-600 font-semibold translated-en">Full-time
+                                            Hybrid · Watulintang Media</p>
+                                        <p
+                                            class="text-green-600 font-semibold translated-id">Penuh
+                                            Waktu Hybrid · Watulintang Media</p>
+                                        <p class="text-gray-500 text-sm mb-4">
+                                            Jul 2023 – Jul 2025 · 2 years 1
+                                            month · Gunungkidul, Yogyakarta
+                                        </p>
+                                        <ul class="space-y-2 text-gray-600">
+                                            <li
+                                                class="flex items-start gap-3"><i
+                                                    class="fas fa-check-circle text-green-600 mt-1"></i>
+                                                <span class="translated-en">Project
+                                                    planning & technical
+                                                    discussions.</span>
+                                                <span class="translated-id">Perencanaan
+                                                    proyek & diskusi teknis.</span>
+                                            </li>
+                                            <li
+                                                class="flex items-start gap-3"><i
+                                                    class="fas fa-check-circle text-green-600 mt-1"></i>
+                                                <span class="translated-en">Create
+                                                    database according to system &
+                                                    client needs.</span>
+                                                <span class="translated-id">Membuat
+                                                    database sesuai dengan sistem &
+                                                    kebutuhan klien.</span>
+                                            </li>
+                                            <li
+                                                class="flex items-start gap-3"><i
+                                                    class="fas fa-check-circle text-green-600 mt-1"></i>
+                                                <span class="translated-en">Develop
+                                                    core application + slicing
+                                                    templates.</span>
+                                                <span class="translated-id">Mengembangkan
+                                                    aplikasi inti + memotong
+                                                    template.</span>
+                                            </li>
+                                            <li
+                                                class="flex items-start gap-3"><i
+                                                    class="fas fa-check-circle text-green-600 mt-1"></i>
+                                                <span class="translated-en">Create
+                                                    REST API for mobile apps.</span>
+                                                <span class="translated-id">Membuat
+                                                    REST API untuk aplikasi mobile.</span>
+                                            </li>
+                                            <li
+                                                class="flex items-start gap-3"><i
+                                                    class="fas fa-check-circle text-green-600 mt-1"></i>
+                                                <span class="translated-en">Monitor,
+                                                    update & fix bugs.</span>
+                                                <span class="translated-id">Memantau,
+                                                    memperbarui & memperbaiki bug.</span>
+                                            </li>
+                                            <li
+                                                class="flex items-start gap-3"><i
+                                                    class="fas fa-check-circle text-green-600 mt-1"></i>
+                                                <span class="translated-en">Maintain
+                                                    technical documentation.</span>
+                                                <span class="translated-id">Memelihara
+                                                    dokumentasi teknis.</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- ITEM 3 -->
+                                    <div class="relative">
+                                        <div
+                                            class="absolute -left-[29px] top-1 w-6 h-6 bg-green-600 rounded-full shadow-md flex items-center justify-center">
+                                            <div
+                                                class="w-3 h-3 bg-white rounded-full"></div>
+                                        </div>
+                                        <h4
+                                            class="text-2xl font-bold text-gray-800 translated-en">Frontend
+                                            Web Developer</h4>
+                                        <h4
+                                            class="text-2xl font-bold text-gray-800 translated-id">Pengembang
+                                            Web Frontend</h4>
+                                        <p
+                                            class="text-green-600 font-semibold translated-en">Fulltime
+                                            Remote · Watulintang Media</p>
+                                        <p
+                                            class="text-green-600 font-semibold translated-id">Penuh
+                                            Waktu Jarak Jauh · Watulintang Media</p>
+                                        <p class="text-gray-500 text-sm mb-4">
+                                            Oct 2022 – Jun 2023 · 9 months ·
+                                            Gunungkidul, Yogyakarta
+                                        </p>
+                                        <ul class="space-y-2 text-gray-600">
+                                            <li
+                                                class="flex items-start gap-3"><i
+                                                    class="fas fa-check-circle text-green-600 mt-1"></i>
+                                                <span class="translated-en">Laravel-based
+                                                    frontend development.</span>
+                                                <span class="translated-id">Pengembangan
+                                                    frontend berbasis Laravel.</span>
+                                            </li>
+                                            <li
+                                                class="flex items-start gap-3"><i
+                                                    class="fas fa-check-circle text-green-600 mt-1"></i>
+                                                <span class="translated-en">Responsive
+                                                    UI/UX for web apps.</span>
+                                                <span class="translated-id">UI/UX
+                                                    responsif untuk aplikasi web.</span>
+                                            </li>
+                                            <li
+                                                class="flex items-start gap-3"><i
+                                                    class="fas fa-check-circle text-green-600 mt-1"></i>
+                                                <span class="translated-en">Integrating
+                                                    frontend with backend APIs.</span>
+                                                <span class="translated-id">Mengintegrasikan
+                                                    frontend dengan API backend.</span>
+                                            </li>
+                                            <li
+                                                class="flex items-start gap-3"><i
+                                                    class="fas fa-check-circle text-green-600 mt-1"></i>
+                                                <span class="translated-en">Performance,
+                                                    accessibility & SEO
+                                                    improvements.</span>
+                                                <span class="translated-id">Peningkatan
+                                                    kinerja, aksesibilitas & SEO.</span>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <ul class="space-y-3 text-gray-600 mt-6">
+                            </div>
+                        </div>
+                        <!-- Experience 2 -->
+                        <div
+                            class="bg-white rounded-3xl p-8 shadow-xl card-hover relative overflow-hidden">
+                            <div
+                                class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-500/10 to-green-700/10 rounded-bl-full"></div>
+                            <div class="relative z-10">
+                                <div
+                                    class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                                    <div>
+                                        <h3
+                                            class="text-2xl font-bold text-gray-800 mb-2 translated-en">Freelance
+                                            Web Developer</h3>
+                                        <h3
+                                            class="text-2xl font-bold text-gray-800 mb-2 translated-id">Pengembang
+                                            Web Freelance</h3>
+                                        <p
+                                            class="text-green-600 font-semibold text-lg">ZADA
+                                            CREATIVE MEDIA</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <span
+                                            class="inline-block bg-gray-100 text-gray-700 px-4 py-2 rounded-full font-semibold">2018
+                                            - 2022</span>
+                                        <p
+                                            class="text-sm text-gray-500 mt-2 translated-en">Self
+                                            Employed</p>
+                                        <p
+                                            class="text-sm text-gray-500 mt-2 translated-id">Wiraswasta</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 mb-4 translated-en">
+                                    Built a professional software
+                                    development agency specializing in web
+                                    and mobile applications for medium-sized
+                                    businesses and students.
+                                </p>
+                                <p class="text-gray-600 mb-4 translated-id">
+                                    Membangun agensi pengembangan perangkat lunak
+                                    profesional yang mengkhususkan diri dalam
+                                    aplikasi web dan mobile untuk bisnis menengah
+                                    dan mahasiswa.
+                                </p>
+                                <ul class="space-y-3 text-gray-600">
                                     <li class="flex items-start gap-3">
-                                        <i class="fas fa-check-circle text-green-600 mt-1"></i>
-                                        <span>Focused on web application development with emphasis on framework utilization, scalability, and project management techniques</span>
+                                        <i
+                                            class="fas fa-check-circle text-green-600 mt-1"></i>
+                                        <span class="translated-en">Full-Stack Development -
+                                            contribute to web application
+                                            development</span>
+                                        <span class="translated-id">Pengembangan Full-Stack -
+                                            berkontribusi pada pengembangan
+                                            aplikasi web</span>
                                     </li>
                                     <li class="flex items-start gap-3">
-                                        <i class="fas fa-check-circle text-green-600 mt-1"></i>
-                                        <span>Worked as assistant lecturer in lab, providing guidance on web application development and basic computer networking</span>
+                                        <i
+                                            class="fas fa-check-circle text-green-600 mt-1"></i>
+                                        <span class="translated-en">Project Management -
+                                            coordinating programming team
+                                            for on-time delivery</span>
+                                        <span class="translated-id">Manajemen Proyek -
+                                            mengkoordinasikan tim pemrograman
+                                            untuk pengiriman tepat waktu</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <i
+                                            class="fas fa-check-circle text-green-600 mt-1"></i>
+                                        <span class="translated-en">Create branding such as logos
+                                            and social media
+                                            requirements</span>
+                                        <span class="translated-id">Membuat branding seperti logo
+                                            dan kebutuhan media
+                                            sosial</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <i
+                                            class="fas fa-check-circle text-green-600 mt-1"></i>
+                                        <span class="translated-en">Create documentation, invoices
+                                            and proposals for clients</span>
+                                        <span class="translated-id">Membuat dokumentasi, faktur
+                                            dan proposal untuk klien</span>
                                     </li>
                                 </ul>
                             </div>
@@ -549,141 +919,291 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="py-24 bg-gradient-to-br from-white via-green-50/20 to-white">
-        <div class="container mx-auto px-6">
-            <div class="max-w-7xl mx-auto">
-                <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800">Latest Projects</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-green-500 to-green-700 mx-auto mb-16 rounded-full"></div>
-
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Project 1 -->
-                    <div class="bg-white rounded-3xl overflow-hidden shadow-xl card-hover group">
-                        <div class="h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center text-white text-6xl relative overflow-hidden">
-                            <i class="fas fa-users-cog group-hover:scale-110 transition-transform duration-300"></i>
-                            <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">KinerjaKita HRIS</h3>
-                            <p class="text-gray-600 mb-4">Human Resource Information System with comprehensive employee management features</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm font-semibold">Laravel</span>
-                                <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold">API</span>
-                                <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-semibold">2023</span>
+        </section>
+        <!-- Education Section -->
+        <section id="education" class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-5xl mx-auto">
+                    <h2
+                        class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800 translated-en">Education</h2>
+                    <h2
+                        class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800 translated-id">Pendidikan</h2>
+                    <div
+                        class="w-24 h-1 bg-gradient-to-r from-green-500 to-green-700 mx-auto mb-16 rounded-full"></div>
+                    <div
+                        class="bg-white rounded-3xl p-10 shadow-xl card-hover relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-green-500/10 to-green-700/10 rounded-bl-full"></div>
+                        <div class="relative z-10">
+                            <div class="flex items-start gap-6">
+                                <div
+                                    class="w-20 h-20 bg-gradient-to-br from-green-500 to-green-700 rounded-2xl flex items-center justify-center text-white text-3xl flex-shrink-0">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div
+                                        class="flex flex-wrap justify-between items-start gap-4 mb-4">
+                                        <div>
+                                            <h3
+                                                class="text-2xl font-bold text-gray-800 mb-2 translated-en">Bachelor
+                                                of Computer Science</h3>
+                                            <h3
+                                                class="text-2xl font-bold text-gray-800 mb-2 translated-id">Sarjana
+                                                Ilmu Komputer</h3>
+                                            <p
+                                                class="text-green-600 font-semibold text-lg mb-1">Digital
+                                                Technology University of
+                                                Indonesia (UTDI)</p>
+                                            <p class="text-gray-500 translated-en">Faculty
+                                                of Information Technology,
+                                                Informatics</p>
+                                            <p class="text-gray-500 translated-id">Fakultas
+                                                Teknologi Informasi,
+                                                Informatika</p>
+                                        </div>
+                                        <span
+                                            class="inline-block bg-green-100 text-green-700 px-4 py-2 rounded-full font-semibold">2015
+                                            - 2019</span>
+                                    </div>
+                                    <ul
+                                        class="space-y-3 text-gray-600 mt-6">
+                                        <li class="flex items-start gap-3">
+                                            <i
+                                                class="fas fa-check-circle text-green-600 mt-1"></i>
+                                            <span class="translated-en">Focused on web application
+                                                development with emphasis on
+                                                framework utilization,
+                                                scalability, and project
+                                                management techniques</span>
+                                            <span class="translated-id">Fokus pada pengembangan aplikasi web
+                                                dengan penekanan pada pemanfaatan
+                                                framework, skalabilitas, dan teknik
+                                                manajemen proyek</span>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <i
+                                                class="fas fa-check-circle text-green-600 mt-1"></i>
+                                            <span class="translated-en">Worked as assistant
+                                                lecturer in lab, providing
+                                                guidance on web application
+                                                development and basic
+                                                computer networking</span>
+                                            <span class="translated-id">Bekerja sebagai asisten
+                                                dosen di lab, memberikan
+                                                bimbingan tentang pengembangan
+                                                aplikasi web dan jaringan
+                                                komputer dasar</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                            <a href="https://kinerjakita.com/login" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-green-600 font-semibold hover:text-green-700 transition-colors"></a>
-                                View Project <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Project 2 -->
-                    <div class="bg-white rounded-3xl overflow-hidden shadow-xl card-hover group">
-                        <div class="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white text-6xl relative overflow-hidden">
-                            <i class="fas fa-graduation-cap group-hover:scale-110 transition-transform duration-300"></i>
-                            <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">HayEdu Platform</h3>
-                            <p class="text-gray-600 mb-4">E-Learning platform with interactive course management and student tracking</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-semibold">PHP</span>
-                                <span class="px-3 py-1 bg-sky-100 text-sky-700 rounded-full text-sm font-semibold">Vue.js</span>
-                                <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-semibold">2022</span>
-                            </div>
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700 transition-colors">
-                                View Project <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Project 3 -->
-                    <div class="bg-white rounded-3xl overflow-hidden shadow-xl card-hover group">
-                        <div class="h-48 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center text-white text-6xl relative overflow-hidden">
-                            <i class="fas fa-shopping-cart group-hover:scale-110 transition-transform duration-300"></i>
-                            <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">E-Commerce Store</h3>
-                            <p class="text-gray-600 mb-4">Online store with custom product catalog, checkout integration and admin dashboard</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold">WooCommerce</span>
-                                <span class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-semibold">Stripe</span>
-                                <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-semibold">2021</span>
-                            </div>
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-purple-600 font-semibold hover:text-purple-700 transition-colors">
-                                View Project <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Project 4 -->
-                    <div class="bg-white rounded-3xl overflow-hidden shadow-xl card-hover group">
-                        <div class="h-48 bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center text-white text-6xl relative overflow-hidden">
-                            <i class="fas fa-mobile-alt group-hover:scale-110 transition-transform duration-300"></i>
-                            <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">Booking API</h3>
-                            <p class="text-gray-600 mb-4">RESTful API for a mobile booking application with real-time availability and payment hooks</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm font-semibold">Node.js</span>
-                                <span class="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-semibold">REST API</span>
-                                <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-semibold">2024</span>
-                            </div>
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-yellow-700 font-semibold hover:text-yellow-800 transition-colors">
-                                View Project <i class="fas fa-arrow-right"></i>
-                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-50 border-t border-gray-200 py-8">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center text-white font-bold">ES</div>
-                    <div>
-                        <p class="font-semibold text-gray-800">Endra Setiawan</p>
-                        <p class="text-sm text-gray-500">Full Stack Web Developer</p>
+        </section>
+        <!-- Portfolio Section -->
+        <section id="portfolio"
+            class="py-24 bg-gradient-to-br from-white via-green-50/20 to-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-5xl mx-auto">
+                    <h2
+                        class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800 translated-en">
+                        Latest Projects
+                    </h2>
+                    <h2
+                        class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800 translated-id">
+                        Proyek Terbaru
+                    </h2>
+                    <div
+                        class="w-24 h-1 bg-gradient-to-r from-green-500 to-green-700 mx-auto mb-16 rounded-full"></div>
+                    <!-- Coming Soon Placeholder -->
+                    <div class="flex justify-center">
+                        <div
+                            class="p-8 bg-white rounded-2xl shadow border border-gray-100 max-w-xl w-full text-center">
+                            <div class="flex justify-center mb-3">
+                                <svg class="w-7 h-7 text-green-600 animate-spin"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12"
+                                        r="10"
+                                        stroke="currentColor"
+                                        stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor"
+                                        d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+                                </svg>
+                            </div>
+                            <h3
+                                class="text-2xl font-semibold text-gray-800 translated-en">Coming
+                                Soon</h3>
+                            <h3
+                                class="text-2xl font-semibold text-gray-800 translated-id">Segera
+                                Hadir</h3>
+                            <p class="text-gray-600 mt-2 text-sm translated-en">
+                                This section is being prepared. New projects
+                                will appear here soon.
+                            </p>
+                            <p class="text-gray-600 mt-2 text-sm translated-id">
+                                Bagian ini sedang dipersiapkan. Proyek baru
+                                akan segera muncul di sini.
+                            </p>
+                        </div>
                     </div>
                 </div>
-
-                <div class="flex items-center gap-6">
-                    <a href="#portfolio" class="text-gray-600 hover:text-green-600">Portfolio</a>
-                    <a href="#experience" class="text-gray-600 hover:text-green-600">Experience</a>
-                    <a href="#contact" class="text-gray-600 hover:text-green-600">Contact</a>
+            </div>
+        </section>
+        <!-- Footer -->
+        <footer class="bg-gray-50 border-t border-gray-200 py-8">
+            <div class="container mx-auto px-6">
+                <div
+                    class="flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center text-white font-bold">ES</div>
+                        <div>
+                            <p class="font-semibold text-gray-800">Endra
+                                Setiawan</p>
+                            <p class="text-sm text-gray-500 translated-en">Full Stack
+                                Web
+                                Developer</p>
+                            <p class="text-sm text-gray-500 translated-id">Pengembang
+                                Web
+                                Full Stack</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <a href="https://github.com/setiaendra18"
+                            target="_blank" rel="noopener noreferrer"
+                            class="text-gray-600 hover:text-gray-900">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/setiaendra18"
+                            target="_blank" rel="noopener noreferrer"
+                            class="text-blue-600 hover:text-blue-800">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://wa.me/6281343316931"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-green-600 hover:text-green-800">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
                 </div>
-
-                <div class="flex items-center gap-4">
-                    <a href="https://github.com/setiaendra18" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://linkedin.com/in/setiaendra18" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://wa.me/6281343316931" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:text-green-800">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
+                <div class="mt-6 text-center text-sm text-gray-500">
+                    © <span id="year"></span> Endra Setiawan. All rights
+                    reserved.
                 </div>
             </div>
-
-            <div class="mt-6 text-center text-sm text-gray-500">
-                © <span id="year"></span> Endra Setiawan. All rights reserved.
-            </div>
-        </div>
-    </footer>
-
-    <script>
+        </footer>
+        <script>
         // footer year
         document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Language Switcher Functionality
+        const languageToggle = document.getElementById('languageToggle');
+        const languageDropdown = document.getElementById('languageDropdown');
+        const languageOptions = document.querySelectorAll('.language-option');
+        const flagIcon = languageToggle.querySelector('.flag-icon');
+        const languageText = languageToggle.querySelector('span');
+        
+        // Toggle dropdown
+        languageToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            languageDropdown.classList.toggle('active');
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function() {
+            languageDropdown.classList.remove('active');
+        });
+        
+        // Language selection
+        languageOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                
+                // Update active state
+                languageOptions.forEach(opt => opt.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Update button
+                if (lang === 'en') {
+                    flagIcon.className = 'flag-icon flag-en';
+                    languageText.textContent = 'English';
+                } else {
+                    flagIcon.className = 'flag-icon flag-id';
+                    languageText.textContent = 'Indonesia';
+                }
+                
+                // Change language
+                changeLanguage(lang);
+                
+                // Close dropdown
+                languageDropdown.classList.remove('active');
+            });
+        });
+        
+        // Language change function
+        function changeLanguage(lang) {
+            document.body.className = document.body.className.replace(/id|en/g, '') + ' ' + lang;
+            
+            // Save preference to localStorage
+            localStorage.setItem('preferred-language', lang);
+        }
+        
+        // Detect user's location and set default language
+        function detectUserLanguage() {
+            // Get user's timezone
+            const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            
+            // Check if user is in Indonesia or nearby regions
+            const indonesiaTimezones = [
+                'Asia/Jakarta', 'Asia/Makassar', 'Asia/Jayapura', 
+                'Asia/Singapore', 'Asia/Kuala_Lumpur', 'Asia/Manila'
+            ];
+            
+            // Check for saved preference first
+            const savedLang = localStorage.getItem('preferred-language');
+            
+            if (savedLang) {
+                // Use saved preference
+                changeLanguage(savedLang);
+                
+                // Update UI to match saved language
+                const activeOption = document.querySelector(`.language-option[data-lang="${savedLang}"]`);
+                if (activeOption) {
+                    languageOptions.forEach(opt => opt.classList.remove('active'));
+                    activeOption.classList.add('active');
+                    
+                    if (savedLang === 'en') {
+                        flagIcon.className = 'flag-icon flag-en';
+                        languageText.textContent = 'English';
+                    } else {
+                        flagIcon.className = 'flag-icon flag-id';
+                        languageText.textContent = 'Indonesia';
+                    }
+                }
+            } else if (indonesiaTimezones.includes(timezone)) {
+                // User is likely in Indonesia or nearby, set language to Indonesian
+                changeLanguage('id');
+                
+                // Update UI
+                const idOption = document.querySelector('.language-option[data-lang="id"]');
+                if (idOption) {
+                    languageOptions.forEach(opt => opt.classList.remove('active'));
+                    idOption.classList.add('active');
+                    flagIcon.className = 'flag-icon flag-id';
+                    languageText.textContent = 'Indonesia';
+                }
+            }
+        }
+        
+        // Initialize when page loads
+        window.addEventListener('DOMContentLoaded', function() {
+            detectUserLanguage();
+        });
     </script>
-</body>
+    </body>
 </html>

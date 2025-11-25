@@ -1,51 +1,437 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>setiaendra18.github.io</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endra Setiawan - Web Developer</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#16A34A',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .fade-in { animation: fadeIn 0.8s ease-in; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hover-glow:hover { box-shadow: 0 0 30px rgba(22, 163, 74, 0.4); }
+        .card-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); }
+    </style>
 </head>
-<body class="">
-    <div class="bg-white py-24 sm:py-32 lg:py-40">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <div class="sm:text-center">
-                <h3 class="text-4xl font-extrabold text-transparent  bg-clip-text bg-gradient-to-br from-green-400 
-                to-blue-600">
-                    Welcome
-                </h3>
-                <h3 class="text-5xl mt-4 font-extrabold text-transparent  bg-clip-text bg-gradient-to-br from-green-400 
-                    to-blue-600">
-                    Need help for your website?
-                </h3>
-                <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
-                    Welcome to my personal page, I provide several services which you can see below. This page also
-                    contains how to pay for my services.
-                </p>
-                <br>
-                <a href="https://wa.me/6281343316931" target="_blank" class="text-white bg-gradient-to-br from-green-400 
-                    to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none
-                     focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg 
-                     text-sm px-5 py-2.5 text-center mr-2 mb-2">
-                    Whatsapp</a>
-                <a href="mailto:setiendra18@gmail.com"
-                    class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
-                    E-mail </a>
-                <a href="https://linkedin.com/in/setiaendra18" target="_blank"
-                    class="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
-                    linkedin</a>
-                <a href="payment.html" class="text-gray-900 bg-gradient-to-r
-                     from-teal-200 to-lime-200 hover:bg-gradient-to-l 
-                     hover:from-teal-200 hover:to-lime-200 focus:ring-4 
-                     focus:outline-none focus:ring-lime-200
-                      dark:focus:ring-teal-700 font-medium rounded-lg text-sm px-5 
-                      py-2.5 text-center mr-2 mb-2">
-                    Payment</a>
+<body class="bg-white text-gray-800 antialiased">
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-green-50/30 to-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(22,163,74,0.05),transparent_50%)]"></div>
+        <div class="container mx-auto px-6 py-20 relative z-10 fade-in">
+            <div class="max-w-4xl mx-auto text-center">
+                <!-- Profile Image -->
+                <div class="mb-8 inline-block relative group">
+                    <div class="w-40 h-40 rounded-full bg-gradient-to-br from-green-400 to-green-600 p-1 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center">
+                            <div class="w-36 h-36 rounded-full bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center text-white text-5xl font-bold">
+                                ES
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-2 -right-2 w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white animate-pulse">
+                        <i class="fas fa-check"></i>
+                    </div>
+                </div>
+
+                <!-- Name & Title -->
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-green-800 tracking-tight">
+                    Endra Setiawan
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-600 mb-3 font-medium">S.Kom</p>
+                <p class="text-2xl md:text-3xl text-gray-700 mb-8 font-semibold">Full Stack Web Developer</p>
+                
+                <!-- Open for Freelance Badge -->
+                <div class="inline-flex items-center gap-3 bg-green-500 text-white px-8 py-4 rounded-full shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 mb-12 cursor-pointer">
+                    <span class="w-3 h-3 bg-white rounded-full animate-pulse"></span>
+                    <span class="font-semibold text-lg">Open for Freelance Projects</span>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="grid grid-cols-3 gap-6 max-w-2xl mx-auto">
+                    <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 card-hover">
+                        <p class="text-4xl font-bold text-green-600 mb-2">6+</p>
+                        <p class="text-gray-600 font-medium">Years Experience</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 card-hover">
+                        <p class="text-4xl font-bold text-green-600 mb-2">50+</p>
+                        <p class="text-gray-600 font-medium">Projects Done</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 card-hover">
+                        <p class="text-4xl font-bold text-green-600 mb-2">100%</p>
+                        <p class="text-gray-600 font-medium">Remote Work</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <script src="" async defer></script>
-</body>
-</html>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-green-500 text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section class="py-12 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-center items-center gap-6">
+                <a href="https://linkedin.com/in/setiaendra18" target="_blank" class="w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white text-xl hover:scale-110 hover-glow transition-all duration-300">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="mailto:setiaendra18@gmail.com" class="w-14 h-14 rounded-full bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center text-white text-xl hover:scale-110 hover-glow transition-all duration-300">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://wa.me/6281343316931" target="_blank" class="w-14 h-14 rounded-full bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center text-white text-xl hover:scale-110 hover-glow transition-all duration-300">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://endra.tech" target="_blank" class="w-14 h-14 rounded-full bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center text-white text-xl hover:scale-110 hover-glow transition-all duration-300">
+                    <i class="fas fa-globe"></i>
+                </a>
+               <a href="https://github.com/endrasetiawan" target="_blank" class="w-14 h-14 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center text-white text-xl hover:scale-110 hover-glow transition-all duration-300">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-24 bg-gradient-to-br from-white via-green-50/20 to-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800">About Me</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-green-500 to-green-700 mx-auto mb-16 rounded-full"></div>
+                
+                <div class="bg-white rounded-3xl p-10 shadow-xl card-hover">
+                    <div class="flex items-start gap-6 mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-700 rounded-2xl flex items-center justify-center text-white text-2xl flex-shrink-0">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">Professional Summary</h3>
+                            <p class="text-gray-600 leading-relaxed text-lg mb-4">
+                                A professional website developer with a background in website application development for more than 6 years. I live in a remote village and work remotely professionally full time or freelance.
+                            </p>
+                            <p class="text-gray-600 leading-relaxed text-lg">
+                                In general, my expertise is website development from scratch up to developing front-end and back-end, especially <span class="font-semibold text-green-600">Laravel</span>, <span class="font-semibold text-green-600">CodeIgniter</span>, and <span class="font-semibold text-green-600">WordPress</span>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6 mt-8">
+                        <div class="flex items-center gap-4 p-4 bg-green-50 rounded-2xl">
+                            <i class="fas fa-map-marker-alt text-green-600 text-xl"></i>
+                            <div>
+                                <p class="text-sm text-gray-500">Location</p>
+                                <p class="font-semibold text-gray-800">Yogyakarta, Indonesia</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 bg-green-50 rounded-2xl">
+                            <i class="fas fa-birthday-cake text-green-600 text-xl"></i>
+                            <div>
+                                <p class="text-sm text-gray-500">Age</p>
+                                <p class="font-semibold text-gray-800">31 Years Old</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 bg-green-50 rounded-2xl">
+                            <i class="fas fa-language text-green-600 text-xl"></i>
+                            <div>
+                                <p class="text-sm text-gray-500">Languages</p>
+                                <p class="font-semibold text-gray-800">Indonesia (Native), English (B1)</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 bg-green-50 rounded-2xl">
+                            <i class="fas fa-briefcase text-green-600 text-xl"></i>
+                            <div>
+                                <p class="text-sm text-gray-500">Work Type</p>
+                                <p class="font-semibold text-gray-800">100% Remote</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800">Skills & Expertise</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-green-500 to-green-700 mx-auto mb-16 rounded-full"></div>
+
+                <!-- Hard Skills -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-8 flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-green-500 to-green-700 rounded-xl flex items-center justify-center text-white">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        Technical Skills
+                    </h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                        <div class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
+                            <i class="fab fa-laravel text-4xl text-red-600 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
+                            <p class="font-semibold text-gray-800">Laravel</p>
+                        </div>
+                        <div class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
+                            <i class="fas fa-fire text-4xl text-orange-600 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
+                            <p class="font-semibold text-gray-800">CodeIgniter</p>
+                        </div>
+                        <div class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
+                            <i class="fab fa-wordpress text-4xl text-blue-600 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
+                            <p class="font-semibold text-gray-800">WordPress</p>
+                        </div>
+                        <div class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
+                            <i class="fab fa-php text-4xl text-purple-600 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
+                            <p class="font-semibold text-gray-800">PHP</p>
+                        </div>
+                        <div class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
+                            <i class="fab fa-js text-4xl text-yellow-500 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
+                            <p class="font-semibold text-gray-800">JavaScript</p>
+                        </div>
+                        <div class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
+                            <i class="fab fa-html5 text-4xl text-orange-600 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
+                            <p class="font-semibold text-gray-800">HTML5</p>
+                        </div>
+                        <div class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
+                            <i class="fab fa-css3-alt text-4xl text-blue-600 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
+                            <p class="font-semibold text-gray-800">CSS3</p>
+                        </div>
+                        <div class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
+                            <i class="fas fa-database text-4xl text-green-600 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
+                            <p class="font-semibold text-gray-800">MySQL</p>
+                        </div>
+                        <div class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
+                            <i class="fab fa-git-alt text-4xl text-orange-600 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
+                            <p class="font-semibold text-gray-800">Git</p>
+                        </div>
+                        <div class="bg-white border-2 border-green-100 rounded-2xl p-5 text-center hover:border-green-500 hover:shadow-lg transition-all duration-300 card-hover group">
+                            <i class="fas fa-server text-4xl text-gray-600 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
+                            <p class="font-semibold text-gray-800">REST API</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Soft Skills -->
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-8 flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-green-500 to-green-700 rounded-xl flex items-center justify-center text-white">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        Professional Skills
+                    </h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="bg-gradient-to-br from-green-500 to-green-700 text-white rounded-2xl p-6 text-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl">
+                            <i class="fas fa-users text-3xl mb-3"></i>
+                            <p class="font-semibold">Team Collaboration</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-green-500 to-green-700 text-white rounded-2xl p-6 text-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl">
+                            <i class="fas fa-tasks text-3xl mb-3"></i>
+                            <p class="font-semibold">Project Management</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-green-500 to-green-700 text-white rounded-2xl p-6 text-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl">
+                            <i class="fas fa-comments text-3xl mb-3"></i>
+                            <p class="font-semibold">Communication</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-green-500 to-green-700 text-white rounded-2xl p-6 text-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl">
+                            <i class="fas fa-clock text-3xl mb-3"></i>
+                            <p class="font-semibold">Time Management</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-24 bg-gradient-to-br from-white via-green-50/20 to-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800">Work Experience</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-green-500 to-green-700 mx-auto mb-16 rounded-full"></div>
+
+                <div class="space-y-8">
+                    <!-- Experience 1 -->
+                    <div class="bg-white rounded-3xl p-8 shadow-xl card-hover relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-500/10 to-green-700/10 rounded-bl-full"></div>
+                        <div class="relative z-10">
+                            <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Mid Full Stack Web Developer</h3>
+                                    <p class="text-green-600 font-semibold text-lg mb-1">WATU LINTANG MEDIA LIMITED PARTNERSHIP</p>
+                                    <a href="https://watulintang.com" target="_blank" class="text-gray-500 hover:text-green-600 transition-colors">
+                                        <i class="fas fa-link mr-2"></i>watulintang.com
+                                    </a>
+                                </div>
+                                <div class="text-right">
+                                    <span class="inline-block bg-green-100 text-green-700 px-4 py-2 rounded-full font-semibold">2022 - Present</span>
+                                    <p class="text-sm text-gray-500 mt-2">Full Time Remote</p>
+                                </div>
+                            </div>
+                            <ul class="space-y-3 text-gray-600">
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-check-circle text-green-600 mt-1"></i>
+                                    <span>Collaborate in discussions every time starting a new project</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-check-circle text-green-600 mt-1"></i>
+                                    <span>Create database based on system and client requirements</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-check-circle text-green-600 mt-1"></i>
+                                    <span>Develop core application, slicing templates for frontend and administrator panel</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-check-circle text-green-600 mt-1"></i>
+                                    <span>Create API for mobile application consumption needs</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-check-circle text-green-600 mt-1"></i>
+                                    <span>Monitor, update and fix bugs regularly</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-check-circle text-green-600 mt-1"></i>
+                                    <span>Create technical documentation</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Experience 2 -->
+                    <div class="bg-white rounded-3xl p-8 shadow-xl card-hover relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-500/10 to-green-700/10 rounded-bl-full"></div>
+                        <div class="relative z-10">
+                            <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Freelance Web Developer</h3>
+                                    <p class="text-green-600 font-semibold text-lg">ZADA CREATIVE MEDIA</p>
+                                </div>
+                                <div class="text-right">
+                                    <span class="inline-block bg-gray-100 text-gray-700 px-4 py-2 rounded-full font-semibold">2018 - 2022</span>
+                                    <p class="text-sm text-gray-500 mt-2">Self Employed</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 mb-4">
+                                Built a professional software development agency specializing in web and mobile applications for medium-sized businesses and students.
+                            </p>
+                            <ul class="space-y-3 text-gray-600">
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-check-circle text-green-600 mt-1"></i>
+                                    <span>Full-Stack Development - contribute to web application development</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-check-circle text-green-600 mt-1"></i>
+                                    <span>Project Management - coordinating programming team for on-time delivery</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-check-circle text-green-600 mt-1"></i>
+                                    <span>Create branding such as logos and social media requirements</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-check-circle text-green-600 mt-1"></i>
+                                    <span>Create documentation, invoices and proposals for clients</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800">Education</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-green-500 to-green-700 mx-auto mb-16 rounded-full"></div>
+
+                <div class="bg-white rounded-3xl p-10 shadow-xl card-hover relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-green-500/10 to-green-700/10 rounded-bl-full"></div>
+                    <div class="relative z-10">
+                        <div class="flex items-start gap-6">
+                            <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-green-700 rounded-2xl flex items-center justify-center text-white text-3xl flex-shrink-0">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex flex-wrap justify-between items-start gap-4 mb-4">
+                                    <div>
+                                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Bachelor of Computer Science</h3>
+                                        <p class="text-green-600 font-semibold text-lg mb-1">Digital Technology University of Indonesia (UTDI)</p>
+                                        <p class="text-gray-500">Faculty of Information Technology, Informatics</p>
+                                    </div>
+                                    <span class="inline-block bg-green-100 text-green-700 px-4 py-2 rounded-full font-semibold">2015 - 2019</span>
+                                </div>
+                                <ul class="space-y-3 text-gray-600 mt-6">
+                                    <li class="flex items-start gap-3">
+                                        <i class="fas fa-check-circle text-green-600 mt-1"></i>
+                                        <span>Focused on web application development with emphasis on framework utilization, scalability, and project management techniques</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <i class="fas fa-check-circle text-green-600 mt-1"></i>
+                                        <span>Worked as assistant lecturer in lab, providing guidance on web application development and basic computer networking</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-24 bg-gradient-to-br from-white via-green-50/20 to-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800">Latest Projects</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-green-500 to-green-700 mx-auto mb-16 rounded-full"></div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1 -->
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-xl card-hover group">
+                        <div class="h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center text-white text-6xl relative overflow-hidden">
+                            <i class="fas fa-users-cog group-hover:scale-110 transition-transform duration-300"></i>
+                            <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">KinerjaKita HRIS</h3>
+                            <p class="text-gray-600 mb-4">Human Resource Information System with comprehensive employee management features</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm font-semibold">Laravel</span>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold">API</span>
+                                <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-semibold">2023</span>
+                            </div>
+                            <a href="https://kinerjakita.com/login" target="_blank" class="inline-flex items-center gap-2 text-green-600 font-semibold hover:text-green-700 transition-colors">
+                                View Project <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-xl card-hover group">
+                        <div class="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white text-6xl relative overflow-hidden">
+                            <i class="fas fa-graduation-cap group-hover:scale-110 transition-transform duration-300"></i>
+                            <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">HayEdu Platform</h3>
+                            <p class="text-gray-600 mb-4">E-Learning platform with interactive course management and student tracking</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-orang

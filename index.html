@@ -124,6 +124,14 @@
         body.id .translated-id {
             display: block;
         }
+        @keyframes countUp {
+    from { transform: scale(1.1); opacity: 0.7; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.hit-count-animate {
+    animation: countUp 0.5s ease-in-out;
+}
     </style>
     </head>
     <body class="bg-white text-gray-800 antialiased">
@@ -202,41 +210,42 @@
                             Bekerja</span>
                     </div>
                     <!-- Quick Stats -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto">
-    <div
-        class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 card-hover">
-        <p
-            class="text-4xl font-bold text-green-600 mb-2">6+</p>
-        <p
-            class="text-gray-600 font-medium translated-en">Years
-            Experience</p>
-        <p
-            class="text-gray-600 font-medium translated-id">Tahun
-            Pengalaman</p>
-    </div>
-    <div
-        class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 card-hover">
-        <p
-            class="text-4xl font-bold text-green-600 mb-2">50+</p>
-        <p
-            class="text-gray-600 font-medium translated-en">Projects
-            Done</p>
-        <p
-            class="text-gray-600 font-medium translated-id">Proyek
-            Diselesaikan</p>
-    </div>
-    <div
-        class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 card-hover">
-        <p
-            class="text-4xl font-bold text-green-600 mb-2">100%</p>
-        <p
-            class="text-gray-600 font-medium translated-en">Remote
-            Work</p>
-        <p
-            class="text-gray-600 font-medium translated-id">Kerja
-            Jarak Jauh</p>
-    </div>
-</div>
+                    <div
+                        class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto">
+                        <div
+                            class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 card-hover">
+                            <p
+                                class="text-4xl font-bold text-green-600 mb-2">6+</p>
+                            <p
+                                class="text-gray-600 font-medium translated-en">Years
+                                Experience</p>
+                            <p
+                                class="text-gray-600 font-medium translated-id">Tahun
+                                Pengalaman</p>
+                        </div>
+                        <div
+                            class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 card-hover">
+                            <p
+                                class="text-4xl font-bold text-green-600 mb-2">50+</p>
+                            <p
+                                class="text-gray-600 font-medium translated-en">Projects
+                                Done</p>
+                            <p
+                                class="text-gray-600 font-medium translated-id">Proyek
+                                Diselesaikan</p>
+                        </div>
+                        <div
+                            class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 card-hover">
+                            <p
+                                class="text-4xl font-bold text-green-600 mb-2">100%</p>
+                            <p
+                                class="text-gray-600 font-medium translated-en">Remote
+                                Work</p>
+                            <p
+                                class="text-gray-600 font-medium translated-id">Kerja
+                                Jarak Jauh</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- Scroll Indicator -->
@@ -1157,6 +1166,30 @@
                 </div>
             </div>
         </section>
+        <!-- Hit Stats Section -->
+<!-- Alternative Hit Stats Design -->
+<div class="mt-8 pt-8 border-t border-gray-200 mb-8">
+    <div class="bg-green-50 rounded-2xl p-6 max-w-md mx-auto">
+        <div class="flex items-center justify-center gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-600 translated-en">Total Visits</p>
+                    <p class="text-sm text-gray-600 translated-id">Total Kunjungan</p>
+                    <p class="text-2xl font-bold text-green-600" id="hitCount">0</p>
+                </div>
+            </div>
+        </div>
+        <p class="text-xs text-gray-500 text-center mt-3">
+            <span class="translated-en">Last visit:</span>
+            <span class="translated-id">Kunjungan terakhir:</span>
+            <span id="lastVisit"></span>
+        </p>
+    </div>
+</div>
+
         <!-- Footer -->
         <footer class="bg-gray-50 border-t border-gray-200 py-8">
             <div class="container mx-auto px-6">
@@ -1242,6 +1275,25 @@
                 languageDropdown.classList.remove('active');
             });
         });
+        function updateHitStats() {
+    // Get current stats from localStorage
+    let hitStats = JSON.parse(localStorage.getItem('hitStats')) || {
+        count: 0,
+        lastVisit: null
+    };
+    
+    // Increment hit count
+    hitStats.count++;
+    hitStats.lastVisit = new Date().toLocaleString();
+    
+    // Save back to localStorage
+    localStorage.setItem('hitStats', JSON.stringify(hitStats));
+    
+    // Update display
+    document.getElementById('hitCount').textContent = hitStats.count;
+    document.getElementById('lastVisit').textContent = hitStats.lastVisit;
+}
+
         // Language change function
         function changeLanguage(lang) {
             document.body.className = document.body.className.replace(/id|en/g, '') + ' ' + lang;
@@ -1291,6 +1343,7 @@
         // Initialize when page loads
         window.addEventListener('DOMContentLoaded', function() {
             detectUserLanguage();
+             updateHitStats();
         });
     </script>
     </body>

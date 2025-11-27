@@ -3,9 +3,76 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Endra Setiawan - Web Developer</title>
+        <title>Endra Setiawan - Jasa Pembuatan Website & Aplikasi Profesional</title>
+        <meta name="description" content="Jasa pembuatan website, aplikasi web, dan solusi digital oleh Endra Setiawan. Pengembang web profesional dengan 6+ tahun pengalaman, spesialis Laravel, CodeIgniter, dan WordPress.">
+        <meta name="keywords" content="jasa pembuatan website, pembuatan aplikasi web, web developer, laravel developer, codeigniter, wordpress, freelance web developer">
+        <meta name="author" content="Endra Setiawan">
+        
+        <!-- Open Graph Meta Tags -->
+        <meta property="og:title" content="Endra Setiawan - Jasa Pembuatan Website & Aplikasi Profesional">
+        <meta property="og:description" content="Jasa pembuatan website, aplikasi web, dan solusi digital oleh Endra Setiawan. Pengembang web profesional dengan 6+ tahun pengalaman.">
+        <meta property="og:image" content="https://raw.githubusercontent.com/setiaendra18/setiaendra18.github.io/main/foto.jpg">
+        <meta property="og:url" content="https://setiaendra18.github.io/">
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="Endra Setiawan - Web Developer">
+        
+        <!-- Twitter Card Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Endra Setiawan - Jasa Pembuatan Website & Aplikasi Profesional">
+        <meta name="twitter:description" content="Jasa pembuatan website, aplikasi web, dan solusi digital oleh Endra Setiawan. Pengembang web profesional dengan 6+ tahun pengalaman.">
+        <meta name="twitter:image" content="https://raw.githubusercontent.com/setiaendra18/setiaendra18.github.io/main/foto.jpg">
+        <meta name="twitter:creator" content="@setiaendra18">
+        
+        <!-- Favicon -->
         <link rel="icon" type="image/svg+xml"
             href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' rx='32' ry='32' fill='%2300a35c'/%3E%3Ctext x='50%25' y='58%25' font-size='140' font-family='Arial, sans-serif' font-weight='700' fill='white' text-anchor='middle' dominant-baseline='middle'%3EES%3C/text%3E%3C/svg%3E" />
+        
+        <!-- Canonical URL -->
+        <link rel="canonical" href="https://setiaendra18.github.io/">
+        
+        <!-- Schema.org markup -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": "Endra Setiawan",
+          "jobTitle": "Project Leader & Senior Web Developer",
+          "description": "Jasa pembuatan website, aplikasi web, dan solusi digital profesional",
+          "url": "https://setiaendra18.github.io/",
+          "sameAs": [
+            "https://linkedin.com/in/setiaendra18",
+            "https://github.com/setiaendra18",
+            "https://setiaendra18.github.io/"
+          ],
+          "knowsAbout": ["Web Development", "Laravel", "CodeIgniter", "WordPress", "PHP", "JavaScript"],
+          "hasOccupation": {
+            "@type": "Occupation",
+            "name": "Web Developer",
+            "occupationLocation": {
+              "@type": "City",
+              "name": "Gunungkidul"
+            },
+            "estimatedSalary": {
+              "@type": "MonetaryAmount",
+              "currency": "IDR",
+              "value": {
+                "@type": "QuantitativeValue",
+                "minValue": 0,
+                "maxValue": 0
+              }
+            }
+          },
+          "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Digital Technology University of Indonesia (UTDI)"
+          },
+          "worksFor": {
+            "@type": "Organization",
+            "name": "CV. Watulintang Media"
+          }
+        }
+        </script>
+        
         <script src="https://cdn.tailwindcss.com"></script>
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -31,6 +98,26 @@
         .hover-glow:hover { box-shadow: 0 0 30px rgba(22, 163, 74, 0.4); }
         .card-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); }
+        
+        /* CTA Button Styles */
+        .cta-button {
+            background: linear-gradient(135deg, #FF6B35, #FF8E53);
+            color: white;
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.6);
+            background: linear-gradient(135deg, #FF5722, #FF8E53);
+        }
+        
         /* Language Switcher Styles */
         .language-switcher {
             position: fixed;
@@ -153,6 +240,26 @@
                 </div>
             </div>
         </div>
+        
+        <!-- CTA Banner -->
+        <div class="bg-gradient-to-r from-orange-500 to-red-500 py-3 px-4 text-white text-center">
+            <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex-1">
+                    <p class="font-semibold text-lg">
+                        <span class="translated-en">Looking for professional website & app development services?</span>
+                        <span class="translated-id">Butuh jasa pembuatan website & aplikasi profesional?</span>
+                    </p>
+                </div>
+                <div>
+                    <a href="https://lynk.id/kerjadaridesa" target="_blank" class="cta-button">
+                        <i class="fas fa-rocket"></i>
+                        <span class="translated-en">Get Digital Solutions</span>
+                        <span class="translated-id">Dapatkan Solusi Digital</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
         <!-- Hero Section -->
         <section
             class="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-green-50/30 to-white relative overflow-hidden">
@@ -171,7 +278,7 @@
                                     <div
                                         class="w-36 h-36 rounded-full bg-gradient-to-br from-green-500 to-green-700 p-1">
                                         <img src="foto.jpg"
-                                            alt="Profile Photo"
+                                            alt="Endra Setiawan - Web Developer Profesional"
                                             class="w-full h-full object-cover rounded-full border-4 border-white">
                                     </div>
                                 </div>
@@ -196,6 +303,20 @@
                         class="text-2xl md:text-3xl text-gray-700 mb-1 font-semibold mb-4 translated-id">
                         Pemimpin Proyek & Pengembang Web Senior
                     </p>
+                    
+                    <!-- Service CTA -->
+                    <div class="mb-8">
+                        <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+                            <span class="translated-en">Professional Website & App Development Services</span>
+                            <span class="translated-id">Layanan Profesional Pembuatan Website & Aplikasi</span>
+                        </h2>
+                        <a href="https://lynk.id/kerjadaridesa" target="_blank" class="cta-button text-lg px-8 py-4">
+                            <i class="fas fa-laptop-code"></i>
+                            <span class="translated-en">Get Your Digital Solution</span>
+                            <span class="translated-id">Dapatkan Solusi Digital Anda</span>
+                        </a>
+                    </div>
+                    
                     <div
                         class="inline-flex items-center gap-3 bg-green-500 text-white px-8 py-4 rounded-full shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 mb-12 cursor-pointer">
                         <span
@@ -288,6 +409,123 @@
                 </div>
             </div>
         </section>
+        
+        <!-- Services Section -->
+        <section id="services" class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-6xl mx-auto">
+                    <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800">
+                        <span class="translated-en">Professional Development Services</span>
+                        <span class="translated-id">Layanan Pengembangan Profesional</span>
+                    </h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-green-500 to-green-700 mx-auto mb-16 rounded-full"></div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                        <div class="bg-white rounded-2xl p-8 shadow-lg card-hover border border-gray-100">
+                            <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl flex items-center justify-center text-white text-2xl mb-6">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                                <span class="translated-en">Website Development</span>
+                                <span class="translated-id">Pembuatan Website</span>
+                            </h3>
+                            <p class="text-gray-600 mb-6">
+                                <span class="translated-en">Professional website development with modern technologies, responsive design, and optimal performance.</span>
+                                <span class="translated-id">Pembuatan website profesional dengan teknologi modern, desain responsif, dan performa optimal.</span>
+                            </p>
+                            <ul class="space-y-2 text-gray-600 mb-6">
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-check text-green-600 mt-1"></i>
+                                    <span class="translated-en">Custom Web Applications</span>
+                                    <span class="translated-id">Aplikasi Web Kustom</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-check text-green-600 mt-1"></i>
+                                    <span class="translated-en">E-commerce Solutions</span>
+                                    <span class="translated-id">Solusi E-commerce</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-check text-green-600 mt-1"></i>
+                                    <span class="translated-en">Company Profiles</span>
+                                    <span class="translated-id">Profil Perusahaan</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-white rounded-2xl p-8 shadow-lg card-hover border border-gray-100">
+                            <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-700 rounded-2xl flex items-center justify-center text-white text-2xl mb-6">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                                <span class="translated-en">Web Application</span>
+                                <span class="translated-id">Aplikasi Web</span>
+                            </h3>
+                            <p class="text-gray-600 mb-6">
+                                <span class="translated-en">Development of complex web applications with advanced features and integrations.</span>
+                                <span class="translated-id">Pengembangan aplikasi web kompleks dengan fitur canggih dan integrasi.</span>
+                            </p>
+                            <ul class="space-y-2 text-gray-600 mb-6">
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-check text-green-600 mt-1"></i>
+                                    <span class="translated-en">Management Systems</span>
+                                    <span class="translated-id">Sistem Manajemen</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-check text-green-600 mt-1"></i>
+                                    <span class="translated-en">CRM & ERP Solutions</span>
+                                    <span class="translated-id">Solusi CRM & ERP</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-check text-green-600 mt-1"></i>
+                                    <span class="translated-en">API Development</span>
+                                    <span class="translated-id">Pengembangan API</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-white rounded-2xl p-8 shadow-lg card-hover border border-gray-100">
+                            <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-700 rounded-2xl flex items-center justify-center text-white text-2xl mb-6">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                                <span class="translated-en">Maintenance & Support</span>
+                                <span class="translated-id">Pemeliharaan & Dukungan</span>
+                            </h3>
+                            <p class="text-gray-600 mb-6">
+                                <span class="translated-en">Ongoing maintenance, updates, and technical support for your digital products.</span>
+                                <span class="translated-id">Pemeliharaan berkelanjutan, pembaruan, dan dukungan teknis untuk produk digital Anda.</span>
+                            </p>
+                            <ul class="space-y-2 text-gray-600 mb-6">
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-check text-green-600 mt-1"></i>
+                                    <span class="translated-en">Regular Updates</span>
+                                    <span class="translated-id">Pembaruan Berkala</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-check text-green-600 mt-1"></i>
+                                    <span class="translated-en">Bug Fixing</span>
+                                    <span class="translated-id">Perbaikan Bug</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-check text-green-600 mt-1"></i>
+                                    <span class="translated-en">Performance Optimization</span>
+                                    <span class="translated-id">Optimasi Performa</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <a href="https://lynk.id/kerjadaridesa" target="_blank" class="cta-button text-lg px-8 py-4">
+                            <i class="fas fa-rocket"></i>
+                            <span class="translated-en">Get Professional Service</span>
+                            <span class="translated-id">Dapatkan Layanan Profesional</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
         <!-- About Me Section -->
         <section id="about"
             class="py-24 bg-gradient-to-br from-white via-green-50/20 to-white">
@@ -448,10 +686,34 @@
                                 </div>
                             </div>
                         </div>
+                        
+                        <!-- CTA Section in About -->
+                        <div class="mt-10 p-6 bg-gradient-to-r from-orange-50 to-red-50 rounded-2xl border border-orange-200">
+                            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                                <div class="flex-1">
+                                    <h3 class="text-2xl font-bold text-gray-800 mb-2">
+                                        <span class="translated-en">Ready to Start Your Project?</span>
+                                        <span class="translated-id">Siap Memulai Proyek Anda?</span>
+                                    </h3>
+                                    <p class="text-gray-600">
+                                        <span class="translated-en">Let's discuss your website or application needs and create a solution that fits your business.</span>
+                                        <span class="translated-id">Mari diskusikan kebutuhan website atau aplikasi Anda dan buat solusi yang sesuai dengan bisnis Anda.</span>
+                                    </p>
+                                </div>
+                                <div>
+                                    <a href="https://lynk.id/kerjadaridesa" target="_blank" class="cta-button">
+                                        <i class="fas fa-comments"></i>
+                                        <span class="translated-en">Consult Now</span>
+                                        <span class="translated-id">Konsultasi Sekarang</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+        
         <!-- Skills Section -->
         <section id="skills" class="py-24 bg-white">
             <div class="container mx-auto px-6">
@@ -626,9 +888,27 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- CTA Section in Skills -->
+                    <div class="mt-16 p-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl text-center text-white">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-4">
+                            <span class="translated-en">Need a Developer with These Skills?</span>
+                            <span class="translated-id">Butuh Developer dengan Keterampilan Ini?</span>
+                        </h3>
+                        <p class="text-lg mb-6 max-w-2xl mx-auto">
+                            <span class="translated-en">Let's work together to bring your digital ideas to life with professional development services.</span>
+                            <span class="translated-id">Mari bekerja sama mewujudkan ide digital Anda dengan layanan pengembangan profesional.</span>
+                        </p>
+                        <a href="https://lynk.id/kerjadaridesa" target="_blank" class="inline-flex items-center gap-2 bg-white text-orange-600 font-bold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+                            <i class="fas fa-briefcase"></i>
+                            <span class="translated-en">Hire My Services</span>
+                            <span class="translated-id">Gunakan Layanan Saya</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
+        
         <!-- Experience Section -->
         <section id="experience"
             class="py-24 bg-gradient-to-br from-white via-green-50/20 to-white">
@@ -1023,9 +1303,23 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- CTA Section in Experience -->
+                    <div class="mt-12 text-center">
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+                            <span class="translated-en">Ready to Work with an Experienced Developer?</span>
+                            <span class="translated-id">Siap Bekerja dengan Developer Berpengalaman?</span>
+                        </h3>
+                        <a href="https://lynk.id/kerjadaridesa" target="_blank" class="cta-button text-lg px-8 py-4">
+                            <i class="fas fa-handshake"></i>
+                            <span class="translated-en">Start a Project</span>
+                            <span class="translated-id">Mulai Proyek</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
+        
         <!-- Education Section -->
         <section id="education" class="py-24 bg-white">
             <div class="container mx-auto px-6">
@@ -1117,333 +1411,173 @@
             </div>
         </section>
         
-        <!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Proyek Terbaru</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .card-hover {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-    </style>
-</head>
-<body class="bg-gray-50">
-    <section id="portfolio" class="py-24 bg-gradient-to-br from-white via-green-50/20 to-white">
-        <div class="container mx-auto px-6">
-            <div class="max-w-5xl mx-auto">
-                <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800">
-                    Proyek Terbaru
-                </h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-green-500 to-green-700 mx-auto mb-16 rounded-full"></div>
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-24 bg-gradient-to-br from-white via-green-50/20 to-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-5xl mx-auto">
+                    <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800">
+                        <span class="translated-en">Recent Projects</span>
+                        <span class="translated-id">Proyek Terbaru</span>
+                    </h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-green-500 to-green-700 mx-auto mb-16 rounded-full"></div>
 
-                <!-- Projects Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Project 1 -->
-                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-                        <div class="p-6">
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center text-white">
-                                    <i class="fas fa-globe"></i>
+                    <!-- Projects Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Project 1 -->
+                        <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                            <div class="p-6">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center text-white">
+                                        <i class="fas fa-globe"></i>
+                                    </div>
+                                    <span class="text-sm font-semibold bg-blue-100 text-blue-700 px-3 py-1 rounded-full">2025</span>
                                 </div>
-                                <span class="text-sm font-semibold bg-blue-100 text-blue-700 px-3 py-1 rounded-full">2025</span>
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">Kita Arisan</h3>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full">Watulintang Media</span>
+                                    <a href="https://kitaarisan.com/" target="_blank" class="text-green-600 hover:text-green-700 transition-colors">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
                             </div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">Kita Arisan</h3>
-                            <div class="flex items-center justify-between">
-                                <span class="text-sm font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full">Watulintang Media</span>
-                                <a href="https://kitaarisan.com/" target="_blank" class="text-green-600 hover:text-green-700 transition-colors">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
+                        </div>
+
+                        <!-- Project 2 -->
+                        <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                            <div class="p-6">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl flex items-center justify-center text-white">
+                                        <i class="fas fa-mobile-alt"></i>
+                                    </div>
+                                    <span class="text-sm font-semibold bg-purple-100 text-purple-700 px-3 py-1 rounded-full">2025</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">Presensi Nias Barat</h3>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full">Watulintang Media</span>
+                                    <a href="https://presensi.niasbaratkab.go.id/" target="_blank" class="text-green-600 hover:text-green-700 transition-colors">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 3 -->
+                        <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                            <div class="p-6">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-700 rounded-xl flex items-center justify-center text-white">
+                                        <i class="fas fa-heartbeat"></i>
+                                    </div>
+                                    <span class="text-sm font-semibold bg-orange-100 text-orange-700 px-3 py-1 rounded-full">2025</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">Dinas Kesehatan Nias Barat</h3>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full">Watulintang Media</span>
+                                    <a href="https://dinkes.niasbaratkab.go.id/" target="_blank" class="text-green-600 hover:text-green-700 transition-colors">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 4 -->
+                        <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                            <div class="p-6">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-red-500 to-red-700 rounded-xl flex items-center justify-center text-white">
+                                        <i class="fas fa-tint"></i>
+                                    </div>
+                                    <span class="text-sm font-semibold bg-red-100 text-red-700 px-3 py-1 rounded-full">2025</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">PDAM Tirta Handayani</h3>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full">Watulintang Media</span>
+                                    <a href="https://watulintang.com/" target="_blank" class="text-green-600 hover:text-green-700 transition-colors">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 5 -->
+                        <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                            <div class="p-6">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-green-700 rounded-xl flex items-center justify-center text-white">
+                                        <i class="fas fa-bolt"></i>
+                                    </div>
+                                    <span class="text-sm font-semibold bg-green-100 text-green-700 px-3 py-1 rounded-full">2025</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">PT Energi Mega Persada</h3>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full">Watulintang Media</span>
+                                    <a href="https://watulintang.com/" target="_blank" class="text-green-600 hover:text-green-700 transition-colors">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 6 -->
+                        <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                            <div class="p-6">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-indigo-700 rounded-xl flex items-center justify-center text-white">
+                                        <i class="fas fa-newspaper"></i>
+                                    </div>
+                                    <span class="text-sm font-semibold bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full">2025</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">Kabaria</h3>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full">Personal Project</span>
+                                    <a href="https://www.kabaria.id/" target="_blank" class="text-green-600 hover:text-green-700 transition-colors">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Project 2 -->
-                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-                        <div class="p-6">
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl flex items-center justify-center text-white">
-                                    <i class="fas fa-mobile-alt"></i>
-                                </div>
-                                <span class="text-sm font-semibold bg-purple-100 text-purple-700 px-3 py-1 rounded-full">2025</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">Presensi Nias Barat</h3>
-                            <div class="flex items-center justify-between">
-                                <span class="text-sm font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full">Watulintang Media</span>
-                                <a href="https://presensi.niasbaratkab.go.id/" target="_blank" class="text-green-600 hover:text-green-700 transition-colors">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
+                    <!-- View More Button -->
+                    <div class="text-center mt-12">
+                        <a href="https://wa.me/6281343316931" class="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-green-700 text-white px-8 py-3 rounded-full font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300">
+                            <span class="translated-en">View All Projects</span>
+                            <span class="translated-id">Lihat Semua Proyek</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
-
-                    <!-- Project 3 -->
-                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-                        <div class="p-6">
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-700 rounded-xl flex items-center justify-center text-white">
-                                    <i class="fas fa-heartbeat"></i>
-                                </div>
-                                <span class="text-sm font-semibold bg-orange-100 text-orange-700 px-3 py-1 rounded-full">2025</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">Dinas Kesehatan Nias Barat</h3>
-                            <div class="flex items-center justify-between">
-                                <span class="text-sm font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full">Watulintang Media</span>
-                                <a href="https://dinkes.niasbaratkab.go.id/" target="_blank" class="text-green-600 hover:text-green-700 transition-colors">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 4 -->
-                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-                        <div class="p-6">
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="w-12 h-12 bg-gradient-to-br from-red-500 to-red-700 rounded-xl flex items-center justify-center text-white">
-                                    <i class="fas fa-tint"></i>
-                                </div>
-                                <span class="text-sm font-semibold bg-red-100 text-red-700 px-3 py-1 rounded-full">2025</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">PDAM Tirta Handayani</h3>
-                            <div class="flex items-center justify-between">
-                                <span class="text-sm font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full">Watulintang Media</span>
-                                <a href="https://watulintang.com/" target="_blank" class="text-green-600 hover:text-green-700 transition-colors">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 5 -->
-                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-                        <div class="p-6">
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-green-700 rounded-xl flex items-center justify-center text-white">
-                                    <i class="fas fa-bolt"></i>
-                                </div>
-                                <span class="text-sm font-semibold bg-green-100 text-green-700 px-3 py-1 rounded-full">2025</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">PT Energi Mega Persada</h3>
-                            <div class="flex items-center justify-between">
-                                <span class="text-sm font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full">Watulintang Media</span>
-                                <a href="https://watulintang.com/" target="_blank" class="text-green-600 hover:text-green-700 transition-colors">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 6 -->
-                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-                        <div class="p-6">
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-indigo-700 rounded-xl flex items-center justify-center text-white">
-                                    <i class="fas fa-newspaper"></i>
-                                </div>
-                                <span class="text-sm font-semibold bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full">2025</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">Kabaria</h3>
-                            <div class="flex items-center justify-between">
-                                <span class="text-sm font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full">Personal Project</span>
-                                <a href="https://www.kabaria.id/" target="_blank" class="text-green-600 hover:text-green-700 transition-colors">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 7 -->
-                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-                        <div class="p-6">
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center text-white">
-                                    <i class="fas fa-shipping-fast"></i>
-                                </div>
-                                <span class="text-sm font-semibold bg-blue-100 text-blue-700 px-3 py-1 rounded-full">2025</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">Alkafii Cargo</h3>
-                            <div class="flex items-center justify-between">
-                                <span class="text-sm font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full">Personal Project</span>
-                                <a href="https://alkafiicargo.id/" target="_blank" class="text-green-600 hover:text-green-700 transition-colors">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 8 -->
-                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-                        <div class="p-6">
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl flex items-center justify-center text-white">
-                                    <i class="fas fa-graduation-cap"></i>
-                                </div>
-                                <span class="text-sm font-semibold bg-purple-100 text-purple-700 px-3 py-1 rounded-full">2025</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">Saraswati App</h3>
-                            <div class="flex items-center justify-between">
-                                <span class="text-sm font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full">Watulintang Media</span>
-                                <a href="https://saraswati.app/" target="_blank" class="text-green-600 hover:text-green-700 transition-colors">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 9 -->
-                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-                        <div class="p-6">
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-700 rounded-xl flex items-center justify-center text-white">
-                                    <i class="fas fa-university"></i>
-                                </div>
-                                <span class="text-sm font-semibold bg-orange-100 text-orange-700 px-3 py-1 rounded-full">2025</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">Saraswati LC</h3>
-                            <div class="flex items-center justify-between">
-                                <span class="text-sm font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full">Watulintang Media</span>
-                                <a href="https://saraswatilc.com/" target="_blank" class="text-green-600 hover:text-green-700 transition-colors">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 10 -->
-                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-                        <div class="p-6">
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="w-12 h-12 bg-gradient-to-br from-red-500 to-red-700 rounded-xl flex items-center justify-center text-white">
-                                    <i class="fas fa-book"></i>
-                                </div>
-                                <span class="text-sm font-semibold bg-red-100 text-red-700 px-3 py-1 rounded-full">2025</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">Dinas Pendidikan Nias Barat</h3>
-                            <div class="flex items-center justify-between">
-                                <span class="text-sm font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full">Watulintang Media</span>
-                                <a href="https://disdik.niasbaratkab.go.id/dev/" target="_blank" class="text-green-600 hover:text-green-700 transition-colors">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 11 -->
-                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-                        <div class="p-6">
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-green-700 rounded-xl flex items-center justify-center text-white">
-                                    <i class="fas fa-industry"></i>
-                                </div>
-                                <span class="text-sm font-semibold bg-green-100 text-green-700 px-3 py-1 rounded-full">2025</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">IAJ Indonesia</h3>
-                            <div class="flex items-center justify-between">
-                                <span class="text-sm font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full">Watulintang Media</span>
-                                <a href="https://iaj.co.id/" target="_blank" class="text-green-600 hover:text-green-700 transition-colors">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 12 -->
-                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-                        <div class="p-6">
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-indigo-700 rounded-xl flex items-center justify-center text-white">
-                                    <i class="fas fa-brain"></i>
-                                </div>
-                                <span class="text-sm font-semibold bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full">2025</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">Indopsiko</h3>
-                            <div class="flex items-center justify-between">
-                                <span class="text-sm font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full">Watulintang Media</span>
-                                <a href="https://smart.indopsiko.com/" target="_blank" class="text-green-600 hover:text-green-700 transition-colors">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 13 -->
-                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-                        <div class="p-6">
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center text-white">
-                                    <i class="fas fa-graduation-cap"></i>
-                                </div>
-                                <span class="text-sm font-semibold bg-blue-100 text-blue-700 px-3 py-1 rounded-full">2025</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">Dikpora Yogyakarta</h3>
-                            <div class="flex items-center justify-between">
-                                <span class="text-sm font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full">Watulintang Media</span>
-                                <a href="https://dikpora.jogjaprov.go.id/web/" target="_blank" class="text-green-600 hover:text-green-700 transition-colors">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 14 -->
-                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-                        <div class="p-6">
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl flex items-center justify-center text-white">
-                                    <i class="fas fa-laptop-code"></i>
-                                </div>
-                                <span class="text-sm font-semibold bg-purple-100 text-purple-700 px-3 py-1 rounded-full">2025</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">Smart School Nias Barat</h3>
-                            <div class="flex items-center justify-between">
-                                <span class="text-sm font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full">Watulintang Media</span>
-                                <a href="https://disdik.niasbaratkab.go.id/dev/" target="_blank" class="text-green-600 hover:text-green-700 transition-colors">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 15 -->
-                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-                        <div class="p-6">
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-700 rounded-xl flex items-center justify-center text-white">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
-                                <span class="text-sm font-semibold bg-orange-100 text-orange-700 px-3 py-1 rounded-full">2024</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">Analytics Dashboard</h3>
-                            <div class="flex items-center justify-between">
-                                <span class="text-sm font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full">Personal Project</span>
-                                <a href="https://watulintang.com/" target="_blank" class="text-green-600 hover:text-green-700 transition-colors">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- View More Button -->
-                <div class="text-center mt-12">
-                    <a href="https://wa.me/6281343316931" class="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-green-700 text-white px-8 py-3 rounded-full font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300">
-                        <span>Lihat Semua Proyek</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
                 </div>
             </div>
-        </div>
-    </section>
-</body>
-</html>
+        </section>
+        
+        <!-- Final CTA Section -->
+        <section class="py-20 bg-gradient-to-r from-orange-500 to-red-500">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center text-white">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6">
+                        <span class="translated-en">Ready to Transform Your Digital Presence?</span>
+                        <span class="translated-id">Siap Mengubah Kehadiran Digital Anda?</span>
+                    </h2>
+                    <p class="text-xl mb-8 max-w-2xl mx-auto">
+                        <span class="translated-en">Let's work together to create professional websites and applications that drive your business forward.</span>
+                        <span class="translated-id">Mari bekerja sama menciptakan website dan aplikasi profesional yang mendorong bisnis Anda maju.</span>
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="https://lynk.id/kerjadaridesa" target="_blank" class="bg-white text-orange-600 font-bold px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors inline-flex items-center gap-2">
+                            <i class="fas fa-rocket"></i>
+                            <span class="translated-en">Get Digital Solutions</span>
+                            <span class="translated-id">Dapatkan Solusi Digital</span>
+                        </a>
+                        <a href="https://wa.me/6281343316931" target="_blank" class="bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-lg hover:bg-white hover:text-orange-600 transition-colors inline-flex items-center gap-2">
+                            <i class="fab fa-whatsapp"></i>
+                            <span class="translated-en">Consult via WhatsApp</span>
+                            <span class="translated-id">Konsultasi via WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
         <!-- Footer -->
         <footer class="bg-gray-50 border-t border-gray-200 py-8">
             <div class="container mx-auto px-6">
